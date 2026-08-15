@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Hub · Protección de Datos y Ciberseguridad</title>
+  <meta name="description" content="Buscador unificado de preguntas frecuentes oficiales sobre protección de datos y ciberseguridad (AEPD, CCN-CERT, INCIBE, EDPS, ENISA, NIST, CISA).">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-in">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">🛡️</div>
+        <div>
+          <div class="brand-name">FAQ <span>Hub</span></div>
+          <div class="brand-sub">Protección de Datos · Ciberseguridad</div>
+        </div>
+      </div>
+      <div class="searchwrap">
+        <input id="searchInput" type="search" placeholder="Busca entre todas las preguntas… (ej. cookies, videovigilancia)" autocomplete="off" aria-label="Buscar preguntas frecuentes">
+        <button id="clearSearch" title="Limpiar búsqueda" aria-label="Limpiar búsqueda">✕</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-in">
+      <h1>Todas las FAQs de <em>protección de datos</em> y <em>ciberseguridad</em> en un solo lugar</h1>
+      <p class="lead">Contenido oficial reunido de AEPD, CCN-CERT, INCIBE, EDPS, EDPB, ENISA, ICO, NIST y CISA.</p>
+      <div class="hero-stats">
+        <div class="stat"><b id="statTotal">…</b><span>Preguntas</span></div>
+        <div class="stat"><b id="statSources">…</b><span>Fuentes oficiales</span></div>
+        <div class="stat"><b id="statCats">…</b><span>Categorías</span></div>
+        <div class="stat"><b id="statUpdated">…</b><span>Última actualización</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-card">
+        <div class="side-title">Fuente</div>
+        <div id="sourceFilters"></div>
+      </div>
+      <div class="side-card">
+        <div class="side-title">Categoría</div>
+        <div id="catFilters"></div>
+      </div>
+    </aside>
+
+    <section>
+      <div class="toolbar">
+        <button class="tool-btn filters-toggle" id="filtersToggle">☰ Filtros</button>
+        <div class="result-count" id="resultCount"></div>
+        <div class="tool-actions">
+          <button class="tool-btn" id="expandAll">⌄ Expandir</button>
+          <button class="tool-btn" id="collapseAll">⌃ Contraer</button>
+        </div>
+      </div>
+      <div id="content" aria-live="polite"></div>
+      <div class="empty" id="emptyState">
+        <div class="big">🔎</div>
+        <h3>Sin resultados</h3>
+        <p>No hemos encontrado ninguna pregunta que coincida con tu búsqueda.<br>Prueba con otros términos como «consentimiento», «sanción» o «incidente».</p>
+        <button id="resetFilters">Restablecer filtros</button>
+      </div>
+      <div id="loading" class="loading">Cargando base de conocimiento…</div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-in">
+      <div>
+        <h4>Sobre este portal</h4>
+        <p>FAQ Hub reúne los contenidos públicos de los centros de preguntas frecuentes de organismos oficiales con fines informativos. Algunas respuestas son extractos resumidos; consulta siempre la fuente original.</p>
+      </div>
+      <div>
+        <h4>Proyecto</h4>
+        <p>Código abierto y gratuito. Actualizado automáticamente cada semana mediante GitHub Actions.</p>
+        <a class="foot-link" href="https://github.com/TU-USUARIO/faq-hub" target="_blank" rel="noopener">⭐ Ver en GitHub</a>
+      </div>
+      <div>
+        <h4>Atajos</h4>
+        <p>Pulsa <kbd>/</kbd> para buscar desde cualquier punto de la página.</p>
+      </div>
+    </div>
+    <div class="foot-base">FAQ Hub · Contenido recopilado de fuentes públicas · <span id="footDate"></span></div>
+  </footer>
+
+  <button id="toTop" title="Volver arriba" aria-label="Volver arriba">↑</button>
+
+  <!-- Fuse.js para búsqueda fuzzy (CDN gratuito) -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

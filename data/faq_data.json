@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "1.4.0",
+    "version": "1.5.0",
     "title": "Base de Conocimiento de Protección de Datos y Seguridad de la Información",
     "description": "FAQs y guías oficiales recopiladas de fuentes internacionales",
     "languages": [
@@ -954,9 +954,9 @@
       "source": "aepd_guides",
       "type": "guide",
       "category": "conceptos",
-      "topic": "",
+      "topic": "Página actual",
       "title": "Exactitud, idoneidad y calidad de los datos en tratamientos de datos personales con Inteligencia Artificial",
-      "summary": "",
+      "summary": "111 resultados",
       "published_date": "2026-07-21",
       "tags": [
         "AEPD",
@@ -970,7 +970,7 @@
       "id": "guide_002",
       "source": "aepd_guides",
       "type": "guide",
-      "category": "conceptos",
+      "category": "obligaciones",
       "topic": "",
       "title": "Recomendaciones para fortalecer el cumplimiento de la normativa de protección de datos en la AGE",
       "summary": "",

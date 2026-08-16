@@ -1,6 +1,5 @@
 /* ============================================================
-   FAQ Hub — Lógica completa (pestañas FAQs / Guías)
-   Lee data/faq_data.json, busca con Fuse.js y renderiza
+   FAQ Hub v2 — Con búsqueda inteligente y mejor UX
    ============================================================ */
 
 let DATA = null;
@@ -14,11 +13,13 @@ const $ = (id) => document.getElementById(id);
 function norm(str) {
   return String(str).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
+
 function esc(str) {
   return String(str)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;')
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
+
 function highlight(str, q) {
   const safe = esc(str);
   if (!q) return safe;
@@ -57,19 +58,26 @@ function initFuse() {
   FUSE_FAQS = new Fuse(DATA.faqs, {
     keys: [
       { name: 'question', weight: 0.5 },
-      { name: 'answer',   weight: 0.3 },
-      { name: 'tags',     weight: 0.2 }
+      { name: 'answer', weight: 0.3 },
+      { name: 'tags', weight: 0.2 }
     ],
-    threshold: 0.35, ignoreLocation: true, includeScore: true, minMatchCharLength: 2
+    threshold: 0.35,
+    ignoreLocation: true,
+    includeScore: true,
+    minMatchCharLength: 2
   });
+  
   FUSE_GUIDES = new Fuse(DATA.guides, {
     keys: [
-      { name: 'title',   weight: 0.5 },
+      { name: 'title', weight: 0.5 },
       { name: 'summary', weight: 0.3 },
-      { name: 'topic',   weight: 0.2 },
-      { name: 'tags',    weight: 0.1 }
+      { name: 'topic', weight: 0.2 },
+      { name: 'tags', weight: 0.1 }
     ],
-    threshold: 0.35, ignoreLocation: true, includeScore: true, minMatchCharLength: 2
+    threshold: 0.35,
+    ignoreLocation: true,
+    includeScore: true,
+    minMatchCharLength: 2
   });
 }
 
@@ -103,6 +111,7 @@ function buildFilters() {
 
   const catWrap = $('catFilters');
   catWrap.innerHTML = '';
+  
   const allCat = document.createElement('button');
   allCat.className = 'cat-btn active';
   allCat.dataset.cat = 'all';
@@ -195,13 +204,15 @@ function render() {
 
 function renderFaq(f) {
   const src = DATA.sources.find(s => s.id === f.source) || { name: f.source, url: '#' };
+  const answer = f.answer || 'Respuesta no disponible. Consulta la fuente original para obtener la información completa.';
+  
   return `<article class="faq-item ${f.source}">
     <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
       <span>${highlight(f.question, state.query)}</span>
       <span class="chev">⌄</span>
     </button>
     <div class="faq-a"><div class="faq-a-in"><div class="faq-a-body">
-      <p>${highlight(f.answer || '', state.query)}</p>
+      <p>${highlight(answer, state.query)}</p>
       <div class="src-line">
         <span class="src-tag">${esc(src.name)}</span>
         <a href="${esc(f.url_original || src.url)}" target="_blank" rel="noopener">Ver fuente original ↗</a>
@@ -219,6 +230,7 @@ function renderGuide(g) {
   const url = g.url || g.url_original || '#';
   const isPdf = /\.pdf(\?|$)/i.test(url);
   const btn = isPdf ? 'Descargar PDF' : 'Ver guía';
+  
   return `<article class="guide-item ${g.source}">
     <div class="guide-top">
       <div class="guide-icon">${isPdf ? '📄' : '📘'}</div>
@@ -270,6 +282,7 @@ $('searchInput').addEventListener('input', (e) => {
     render();
   }, 120);
 });
+
 $('clearSearch').onclick = () => {
   $('searchInput').value = '';
   state.query = '';
@@ -277,8 +290,10 @@ $('clearSearch').onclick = () => {
   render();
   $('searchInput').focus();
 };
+
 $('expandAll').onclick = () => document.querySelectorAll('.faq-item').forEach(i => i.classList.add('open'));
 $('collapseAll').onclick = () => document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
 $('resetFilters').onclick = () => {
   state.src = 'all';
   state.cat = 'all';
@@ -308,6 +323,7 @@ document.addEventListener('keydown', (ev) => {
 window.addEventListener('scroll', () => {
   $('toTop').classList.toggle('show', window.scrollY > 500);
 }, { passive: true });
+
 $('toTop').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
 /* ---------- Arranque ---------- */

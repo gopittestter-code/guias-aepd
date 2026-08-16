@@ -16,7 +16,7 @@ OUTPUT = os.path.join(
 )
 
 META = {
-    "version": "2.1.0",
+    "version": "2.2.0",
     "title": "Base de Conocimiento de Protección de Datos y Seguridad de la Información",
     "description": "FAQs y guías oficiales recopiladas de fuentes internacionales",
     "languages": ["es", "en"],
@@ -46,15 +46,27 @@ CATEGORIES = [
     {"id": "menores", "name": "Menores y educación", "icon": "🎓"},
     {"id": "internet", "name": "Internet y redes sociales", "icon": "🌐"},
     {"id": "reclamaciones", "name": "Reclamaciones", "icon": "📮"},
+    {"id": "laboral", "name": "Ámbito laboral", "icon": "💼"},
+    {"id": "publicidad", "name": "Publicidad no deseada", "icon": "📵"},
+    {"id": "morosos", "name": "Solvencia patrimonial", "icon": "💳"},
+    {"id": "comunidades", "name": "Comunidades de propietarios", "icon": "🏘️"},
+    {"id": "transparencia", "name": "Transparencia", "icon": "🔍"},
+    {"id": "sede", "name": "Sede electrónica", "icon": "🖥️"},
+    {"id": "electorales", "name": "Procesos electorales", "icon": "🗳️"},
+    {"id": "canal", "name": "Canal prioritario", "icon": "⚡"},
+    {"id": "salud", "name": "Salud", "icon": "🩺"},
+    {"id": "transferencias", "name": "Transferencias internacionales", "icon": "🌍"},
     {"id": "ciberseguridad_conceptos", "name": "Conceptos de ciberseguridad", "icon": "🛰️"},
     {"id": "incidentes", "name": "Gestión de incidentes", "icon": "🆘"},
     {"id": "nis2", "name": "Directiva NIS2 / ENS", "icon": "📋"},
     {"id": "nis", "name": "Marcos y frameworks", "icon": "🏗️"},
     {"id": "ransomware", "name": "Ransomware", "icon": "🔒"},
+    {"id": "certificacion", "name": "Certificación ciberseguridad", "icon": "✅"},
 ]
 
 
 def load_existing():
+    """Carga el JSON actual filtrando basura."""
     try:
         with open(OUTPUT, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -66,6 +78,7 @@ def load_existing():
 
 
 def guide_quality(g):
+    """Puntúa qué tan buena es una guía (para no empeorar datos al fusionar)."""
     url = (g.get("url") or g.get("url_original") or "")
     s = 0
     if url and ".pdf" in url.lower():
@@ -80,6 +93,7 @@ def guide_quality(g):
 
 
 def merge_faqs(existing, new):
+    """Fusiona FAQs por pregunta; prefiere respuestas más largas."""
     by_id = {f["id"]: f for f in existing}
     by_q = {norm(f["question"]): f for f in existing}
     for f in new:
@@ -88,8 +102,10 @@ def merge_faqs(existing, new):
         q = norm(f["question"])
         old = by_q.get(q)
         if old:
+            # Siempre preferir la respuesta más larga
             if len(f.get("answer", "")) > len(old.get("answer", "")):
-                merged = dict(f); merged["id"] = old["id"]
+                merged = dict(f)
+                merged["id"] = old["id"]
                 by_id[old["id"]] = merged
                 by_q[q] = merged
         else:
@@ -99,6 +115,7 @@ def merge_faqs(existing, new):
 
 
 def merge_guides(existing, new):
+    """Fusiona guías por título; nunca empeora una guía buena."""
     by_id = {g["id"]: g for g in existing}
     by_t = {norm(g["title"]): g for g in existing}
     for g in new:
@@ -107,21 +124,24 @@ def merge_guides(existing, new):
         t = norm(g["title"])
         old = by_t.get(t)
         if old:
+            # Nunca sustituir una guía buena por una peor
             if guide_quality(old) > guide_quality(g):
                 continue
-            merged = dict(g); merged["id"] = old["id"]
+            merged = dict(g)
+            merged["id"] = old["id"]
             by_id[old["id"]] = merged
             by_t[t] = merged
         else:
             by_id[g["id"]] = g
             by_t[t] = g
+    # Ordenar por fecha descendente
     items = list(by_id.values())
     items.sort(key=lambda x: x.get("published_date") or "0000-00-00", reverse=True)
     return items
 
 
 def main():
-    print("🤖 FAQ Hub v2.1 — Actualizando base de conocimiento\n")
+    print("🤖 FAQ Hub v2.2 — Actualizando base de conocimiento\n")
 
     all_faqs = []
     all_guides = []
@@ -135,7 +155,7 @@ def main():
         except Exception as e:
             print(f"  ❌ Error en {scraper_cls.__name__}: {e}")
 
-    # 🔧 Cerrar el navegador headless al terminar
+    # Cerrar el navegador headless al terminar
     close_browser()
 
     existing_faqs, existing_guides = load_existing()
@@ -150,9 +170,16 @@ def main():
     os.makedirs(os.path.dirname(OUTPUT), exist_ok=True)
     with open(OUTPUT, "w", encoding="utf-8") as f:
         json.dump(
-            {"meta": META, "sources": SOURCES, "categories": CATEGORIES,
-             "faqs": merged_faqs, "guides": merged_guides},
-            f, ensure_ascii=False, indent=2,
+            {
+                "meta": META,
+                "sources": SOURCES,
+                "categories": CATEGORIES,
+                "faqs": merged_faqs,
+                "guides": merged_guides,
+            },
+            f,
+            ensure_ascii=False,
+            indent=2,
         )
 
     print(f"\n✅ Listo: {len(merged_faqs)} FAQs + {len(merged_guides)} guías en {OUTPUT}")

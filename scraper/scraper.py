@@ -16,7 +16,7 @@ OUTPUT = os.path.join(
 )
 
 META = {
-    "version": "1.4.0",
+    "version": "1.5.0",
     "title": "Base de Conocimiento de Protección de Datos y Seguridad de la Información",
     "description": "FAQs y guías oficiales recopiladas de fuentes internacionales",
     "languages": ["es", "en"],
@@ -59,17 +59,25 @@ def load_existing():
         with open(OUTPUT, "r", encoding="utf-8") as f:
             data = json.load(f)
         faqs = [f for f in data.get("faqs", []) if not is_junk(f.get("question", ""))]
-        guides = []
-        for g in data.get("guides", []):
-            if is_junk(g.get("title", "")):
-                continue
-            # 🔧 Descarta los placeholders CCN que apuntan a la página general
-            if g.get("source") == "ccn_cert_guides" and g.get("url", "").endswith("/es/guias.html"):
-                continue
-            guides.append(g)
+        guides = [g for g in data.get("guides", []) if not is_junk(g.get("title", ""))]
         return faqs, guides
     except (FileNotFoundError, json.JSONDecodeError):
         return [], []
+
+
+def guide_quality(g):
+    """Puntúa qué tan buena es una guía (para no empeorar datos al fusionar)."""
+    url = (g.get("url") or g.get("url_original") or "")
+    s = 0
+    if url and ".pdf" in url.lower():
+        s += 3
+    elif url and not url.rstrip("/").endswith(("guias.html", "/guias", "faq.html")):
+        s += 2
+    if g.get("summary"):
+        s += 1
+    if g.get("published_date"):
+        s += 1
+    return s
 
 
 def merge_faqs(existing, new):
@@ -100,6 +108,9 @@ def merge_guides(existing, new):
         t = norm(g["title"])
         old = by_t.get(t)
         if old:
+            # 🔧 Nunca sustituir una guía buena por una peor
+            if guide_quality(old) > guide_quality(g):
+                continue
             merged = dict(g); merged["id"] = old["id"]
             by_id[old["id"]] = merged
             by_t[t] = merged

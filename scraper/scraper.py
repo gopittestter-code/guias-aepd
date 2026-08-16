@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from sources import ALL_SCRAPERS
-from sources.base import is_junk, norm
+from sources.base import is_junk, norm, close_browser
 
 OUTPUT = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
@@ -16,7 +16,7 @@ OUTPUT = os.path.join(
 )
 
 META = {
-    "version": "2.0.0",
+    "version": "2.1.0",
     "title": "Base de Conocimiento de Protección de Datos y Seguridad de la Información",
     "description": "FAQs y guías oficiales recopiladas de fuentes internacionales",
     "languages": ["es", "en"],
@@ -55,7 +55,6 @@ CATEGORIES = [
 
 
 def load_existing():
-    """Carga el JSON actual filtrando basura."""
     try:
         with open(OUTPUT, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -67,7 +66,6 @@ def load_existing():
 
 
 def guide_quality(g):
-    """Puntúa qué tan buena es una guía (para no empeorar datos al fusionar)."""
     url = (g.get("url") or g.get("url_original") or "")
     s = 0
     if url and ".pdf" in url.lower():
@@ -82,7 +80,6 @@ def guide_quality(g):
 
 
 def merge_faqs(existing, new):
-    """Fusiona FAQs por pregunta; prefiere respuestas más largas."""
     by_id = {f["id"]: f for f in existing}
     by_q = {norm(f["question"]): f for f in existing}
     for f in new:
@@ -91,7 +88,6 @@ def merge_faqs(existing, new):
         q = norm(f["question"])
         old = by_q.get(q)
         if old:
-            # Siempre preferir la respuesta más larga
             if len(f.get("answer", "")) > len(old.get("answer", "")):
                 merged = dict(f); merged["id"] = old["id"]
                 by_id[old["id"]] = merged
@@ -103,7 +99,6 @@ def merge_faqs(existing, new):
 
 
 def merge_guides(existing, new):
-    """Fusiona guías por título; nunca empeora una guía buena."""
     by_id = {g["id"]: g for g in existing}
     by_t = {norm(g["title"]): g for g in existing}
     for g in new:
@@ -112,7 +107,6 @@ def merge_guides(existing, new):
         t = norm(g["title"])
         old = by_t.get(t)
         if old:
-            # 🔧 Nunca sustituir una guía buena por una peor
             if guide_quality(old) > guide_quality(g):
                 continue
             merged = dict(g); merged["id"] = old["id"]
@@ -121,14 +115,13 @@ def merge_guides(existing, new):
         else:
             by_id[g["id"]] = g
             by_t[t] = g
-    # Ordenar por fecha descendente
     items = list(by_id.values())
     items.sort(key=lambda x: x.get("published_date") or "0000-00-00", reverse=True)
     return items
 
 
 def main():
-    print("🤖 FAQ Hub v2.0 — Actualizando base de conocimiento\n")
+    print("🤖 FAQ Hub v2.1 — Actualizando base de conocimiento\n")
 
     all_faqs = []
     all_guides = []
@@ -141,8 +134,9 @@ def main():
                 all_faqs.extend(items)
         except Exception as e:
             print(f"  ❌ Error en {scraper_cls.__name__}: {e}")
-            import traceback
-            traceback.print_exc()
+
+    # 🔧 Cerrar el navegador headless al terminar
+    close_browser()
 
     existing_faqs, existing_guides = load_existing()
     merged_faqs = merge_faqs(existing_faqs, all_faqs)

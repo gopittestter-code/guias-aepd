@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "2.1.0",
+    "version": "2.2.0",
     "title": "Base de Conocimiento de Protección de Datos y Seguridad de la Información",
     "description": "FAQs y guías oficiales recopiladas de fuentes internacionales",
     "languages": [
@@ -127,6 +127,56 @@
       "icon": "📮"
     },
     {
+      "id": "laboral",
+      "name": "Ámbito laboral",
+      "icon": "💼"
+    },
+    {
+      "id": "publicidad",
+      "name": "Publicidad no deseada",
+      "icon": "📵"
+    },
+    {
+      "id": "morosos",
+      "name": "Solvencia patrimonial",
+      "icon": "💳"
+    },
+    {
+      "id": "comunidades",
+      "name": "Comunidades de propietarios",
+      "icon": "🏘️"
+    },
+    {
+      "id": "transparencia",
+      "name": "Transparencia",
+      "icon": "🔍"
+    },
+    {
+      "id": "sede",
+      "name": "Sede electrónica",
+      "icon": "🖥️"
+    },
+    {
+      "id": "electorales",
+      "name": "Procesos electorales",
+      "icon": "🗳️"
+    },
+    {
+      "id": "canal",
+      "name": "Canal prioritario",
+      "icon": "⚡"
+    },
+    {
+      "id": "salud",
+      "name": "Salud",
+      "icon": "🩺"
+    },
+    {
+      "id": "transferencias",
+      "name": "Transferencias internacionales",
+      "icon": "🌍"
+    },
+    {
       "id": "ciberseguridad_conceptos",
       "name": "Conceptos de ciberseguridad",
       "icon": "🛰️"
@@ -150,6 +200,11 @@
       "id": "ransomware",
       "name": "Ransomware",
       "icon": "🔒"
+    },
+    {
+      "id": "certificacion",
+      "name": "Certificación ciberseguridad",
+      "icon": "✅"
     }
   ],
   "faqs": [

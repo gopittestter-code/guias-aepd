@@ -1,9 +1,13 @@
 """Clase base para todos los scrapers de fuentes oficiales.
-Usa requests y, si el sitio bloquea (401/403), cae a un navegador
-headless real (Playwright) que supera los filtros anti-bot."""
+Cadena de descarga anti-bloqueo:
+  1) requests directo
+  2) proxies de lectura gratuitos (otros servidores)
+  3) navegador headless real (Playwright)
+"""
 import re
 import time
 import unicodedata
+import urllib.parse
 
 import requests
 from abc import ABC, abstractmethod
@@ -16,12 +20,17 @@ JUNK_HEADINGS = {
     "documentación de cookies", "buscar",
 }
 
+PROXY_TEMPLATES = [
+    "https://api.allorigins.win/raw?url={}",
+    "https://corsproxy.io/?url={}",
+]
+
 _PW = None
 _BROWSER = None
+_PROXY_LOGGED = set()
 
 
 def _get_browser():
-    """Lanza un único navegador headless compartido."""
     global _PW, _BROWSER
     if _BROWSER is None:
         from playwright.sync_api import sync_playwright
@@ -31,7 +40,6 @@ def _get_browser():
 
 
 def close_browser():
-    """Cierra el navegador al terminar."""
     global _PW, _BROWSER
     try:
         if _BROWSER is not None:
@@ -79,20 +87,33 @@ class BaseScraper(ABC):
     }
     TIMEOUT = 30
 
-    def fetch(self, url, retries=2):
-        """Descarga con requests; si bloquean (401/403), usa navegador."""
-        for attempt in range(retries + 1):
-            try:
-                resp = requests.get(url, headers=self.HEADERS, timeout=self.TIMEOUT)
-                if resp.status_code in (401, 403):
-                    break  # bloqueado → ir directo al navegador
-                resp.raise_for_status()
+    # ---------- 1) requests ----------
+    def _fetch_requests(self, url):
+        try:
+            resp = requests.get(url, headers=self.HEADERS, timeout=self.TIMEOUT)
+            if resp.status_code == 200 and len(resp.text) > 200:
                 return resp.text
-            except requests.RequestException:
-                if attempt < retries:
-                    time.sleep(2 * (attempt + 1))
-        return self._fetch_browser(url)
+        except requests.RequestException:
+            pass
+        return ""
 
+    # ---------- 2) proxies gratuitos ----------
+    def _fetch_proxy(self, url):
+        enc = urllib.parse.quote(url, safe="")
+        for tmpl in PROXY_TEMPLATES:
+            try:
+                resp = requests.get(tmpl.format(enc), headers=self.HEADERS, timeout=self.TIMEOUT)
+                if resp.status_code == 200 and len(resp.text) > 500:
+                    host = urllib.parse.urlparse(url).netloc
+                    if host not in _PROXY_LOGGED:
+                        print(f"  🔀 {host} descargado vía proxy")
+                        _PROXY_LOGGED.add(host)
+                    return resp.text
+            except requests.RequestException:
+                continue
+        return ""
+
+    # ---------- 3) navegador headless ----------
     def _fetch_browser(self, url):
         try:
             page = _get_browser().new_page()
@@ -105,9 +126,17 @@ class BaseScraper(ABC):
             print(f"  ⚠️  El navegador también falló ({url}): {e}")
             return ""
 
+    def fetch(self, url):
+        """Prueba requests → proxy → navegador, en ese orden."""
+        return (
+            self._fetch_requests(url)
+            or self._fetch_proxy(url)
+            or self._fetch_browser(url)
+        )
+
     def fetch_rendered(self, url):
-        """Para páginas pintadas con JavaScript: navegador directo."""
-        return self._fetch_browser(url) or self.fetch(url)
+        """Para páginas pintadas con JavaScript: navegador directo, con respaldo."""
+        return self._fetch_browser(url) or self._fetch_proxy(url) or self._fetch_requests(url)
 
     @abstractmethod
     def scrape(self):

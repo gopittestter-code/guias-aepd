@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""FAQ Hub — Scraper principal (FAQs + Guías oficiales)."""
+"""FAQ Hub — Scraper principal (FAQs + Guías oficiales AEPD y CCN-CERT)."""
 import json
 import os
 import sys
@@ -16,7 +16,7 @@ OUTPUT = os.path.join(
 )
 
 META = {
-    "version": "1.2.0",
+    "version": "1.3.0",
     "title": "Base de Conocimiento de Protección de Datos y Seguridad de la Información",
     "description": "FAQs y guías oficiales recopiladas de fuentes internacionales",
     "languages": ["es", "en"],
@@ -25,7 +25,8 @@ META = {
 SOURCES = [
     {"id": "aepd", "name": "AEPD (FAQs)", "country": "España", "url": "https://www.aepd.es/preguntas-frecuentes"},
     {"id": "aepd_guides", "name": "AEPD (Guías)", "country": "España", "url": "https://www.aepd.es/guias-y-herramientas/guias"},
-    {"id": "ccn_cert", "name": "CCN-CERT", "country": "España", "url": "https://www.ccn-cert.cni.es/es/sobre-nosotros/faq.html"},
+    {"id": "ccn_cert", "name": "CCN-CERT (FAQs)", "country": "España", "url": "https://www.ccn-cert.cni.es/es/sobre-nosotros/faq.html"},
+    {"id": "ccn_cert_guides", "name": "CCN-CERT (Guías)", "country": "España", "url": "https://www.ccn-cert.cni.es/es/guias.html"},
     {"id": "incibe", "name": "INCIBE", "country": "España", "url": "https://www.incibe.es/linea-de-ayuda-en-ciberseguridad/faq"},
     {"id": "edps", "name": "EDPS", "country": "Unión Europea", "url": "https://www.edps.europa.eu/frequently-asked-questions_en"},
     {"id": "edpb", "name": "EDPB", "country": "Unión Europea", "url": "https://www.edpb.europa.eu/contact/frequently-asked-questions_en"},
@@ -47,7 +48,7 @@ CATEGORIES = [
     {"id": "reclamaciones", "name": "Reclamaciones", "icon": "📮"},
     {"id": "ciberseguridad_conceptos", "name": "Conceptos de ciberseguridad", "icon": "🛰️"},
     {"id": "incidentes", "name": "Gestión de incidentes", "icon": "🆘"},
-    {"id": "nis2", "name": "Directiva NIS2", "icon": "📋"},
+    {"id": "nis2", "name": "Directiva NIS2 / ENS", "icon": "📋"},
     {"id": "nis", "name": "Marcos y frameworks", "icon": "🏗️"},
     {"id": "ransomware", "name": "Ransomware", "icon": "🔒"},
 ]
@@ -73,11 +74,13 @@ def merge_faqs(existing, new):
         q = norm(f["question"])
         old = by_q.get(q)
         if old:
-            if old.get("answer") and not f.get("answer"):
-                continue
-            merged = dict(f); merged["id"] = old["id"]
-            by_id[old["id"]] = merged
-            by_q[q] = merged
+            # 🔧 Siempre preferir la respuesta más larga (más completa)
+            if len(f.get("answer", "")) > len(old.get("answer", "")):
+                merged = dict(f)
+                merged["id"] = old["id"]
+                by_id[old["id"]] = merged
+                by_q[q] = merged
+            # si no, se conserva la antigua
         else:
             by_id[f["id"]] = f
             by_q[q] = f
@@ -85,7 +88,6 @@ def merge_faqs(existing, new):
 
 
 def merge_guides(existing, new):
-    """Fusiona guías por título normalizado."""
     by_id = {g["id"]: g for g in existing}
     by_t = {norm(g["title"]): g for g in existing}
     for g in new:
@@ -100,7 +102,6 @@ def merge_guides(existing, new):
         else:
             by_id[g["id"]] = g
             by_t[t] = g
-    # Ordenar por fecha descendente
     items = list(by_id.values())
     items.sort(key=lambda x: x.get("published_date") or "0000-00-00", reverse=True)
     return items

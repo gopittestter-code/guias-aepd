@@ -14,7 +14,6 @@ JUNK_HEADINGS = {
 
 
 def norm(text):
-    """Minúsculas y sin tildes, para comparar preguntas."""
     return "".join(
         c for c in unicodedata.normalize("NFD", text.lower())
         if not (0x300 <= ord(c) <= 0x36F)
@@ -22,13 +21,11 @@ def norm(text):
 
 
 def clean_text(t):
-    """Elimina restos de 'Leer más…' y compacta espacios."""
     t = re.sub(r"leer más sobre\s*['\"«].*", " ", t, flags=re.I)
     return re.sub(r"\s+", " ", t).strip()
 
 
 def is_junk(question):
-    """Detecta títulos basura (menús, fechas, textos cortos)."""
     q = question.strip()
     return (
         len(q) < 6
@@ -56,6 +53,24 @@ class BaseScraper(ABC):
         except requests.RequestException as e:
             print(f"  ⚠️  Error al descargar {url}: {e}")
             return ""
+
+    def fetch_rendered(self, url):
+        """Descarga la página ejecutando JavaScript (Playwright). Si falla, usa requests."""
+        try:
+            from playwright.sync_api import sync_playwright
+        except Exception:
+            return self.fetch(url)
+        try:
+            with sync_playwright() as p:
+                browser = p.chromium.launch()
+                page = browser.new_page()
+                page.goto(url, timeout=60000, wait_until="networkidle")
+                html = page.content()
+                browser.close()
+                return html
+        except Exception as e:
+            print(f"  ⚠️  Playwright falló ({url}): {e}. Uso requests.")
+            return self.fetch(url)
 
     @abstractmethod
     def scrape(self):

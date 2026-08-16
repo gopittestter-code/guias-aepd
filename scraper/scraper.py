@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""FAQ Hub — Scraper principal (FAQs + Guías oficiales AEPD y CCN-CERT)."""
+"""FAQ Hub — Scraper principal (FAQs + Guías AEPD y CCN-CERT)."""
 import json
 import os
 import sys
@@ -16,7 +16,7 @@ OUTPUT = os.path.join(
 )
 
 META = {
-    "version": "1.3.0",
+    "version": "1.4.0",
     "title": "Base de Conocimiento de Protección de Datos y Seguridad de la Información",
     "description": "FAQs y guías oficiales recopiladas de fuentes internacionales",
     "languages": ["es", "en"],
@@ -59,7 +59,14 @@ def load_existing():
         with open(OUTPUT, "r", encoding="utf-8") as f:
             data = json.load(f)
         faqs = [f for f in data.get("faqs", []) if not is_junk(f.get("question", ""))]
-        guides = [g for g in data.get("guides", []) if not is_junk(g.get("title", ""))]
+        guides = []
+        for g in data.get("guides", []):
+            if is_junk(g.get("title", "")):
+                continue
+            # 🔧 Descarta los placeholders CCN que apuntan a la página general
+            if g.get("source") == "ccn_cert_guides" and g.get("url", "").endswith("/es/guias.html"):
+                continue
+            guides.append(g)
         return faqs, guides
     except (FileNotFoundError, json.JSONDecodeError):
         return [], []
@@ -74,13 +81,10 @@ def merge_faqs(existing, new):
         q = norm(f["question"])
         old = by_q.get(q)
         if old:
-            # 🔧 Siempre preferir la respuesta más larga (más completa)
             if len(f.get("answer", "")) > len(old.get("answer", "")):
-                merged = dict(f)
-                merged["id"] = old["id"]
+                merged = dict(f); merged["id"] = old["id"]
                 by_id[old["id"]] = merged
                 by_q[q] = merged
-            # si no, se conserva la antigua
         else:
             by_id[f["id"]] = f
             by_q[q] = f

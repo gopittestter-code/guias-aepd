@@ -7,7 +7,7 @@ Aplicación web estática que reúne las preguntas frecuentes oficiales de organ
 
 ## 🚀 Características
 
-- 🔎 Búsqueda instantánea con resaltado de resultados (Fuse.js)
+- 🔎 Búsqueda instantánea con resaltado de resultados (Fuse.js) 
 - 🗂️ Filtros por fuente y categoría  
 - 📱 Diseño responsive (móvil, tablet y escritorio)
 - ⚡ Carga de datos desde un único archivo JSON

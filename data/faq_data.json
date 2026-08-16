@@ -3,39 +3,1868 @@
     "version": "1.2.0",
     "title": "Base de Conocimiento de Protección de Datos y Seguridad de la Información",
     "description": "FAQs y guías oficiales recopiladas de fuentes internacionales",
-    "languages": ["es", "en"],
-    "extracted_date": "2026-08-17",
-    "total_sources": 10,
-    "total_faqs": 173,
+    "languages": [
+      "es",
+      "en"
+    ],
+    "extracted_date": "2026-08-16",
+    "total_sources": 4,
+    "total_faqs": 141,
     "total_guides": 15
   },
   "sources": [
-    {"id": "aepd", "name": "AEPD (FAQs)", "country": "España", "url": "https://www.aepd.es/preguntas-frecuentes"},
-    {"id": "aepd_guides", "name": "AEPD (Guías)", "country": "España", "url": "https://www.aepd.es/guias-y-herramientas/guias"},
-    {"id": "ccn_cert", "name": "CCN-CERT", "country": "España", "url": "https://www.ccn-cert.cni.es/es/sobre-nosotros/faq.html"},
-    {"id": "incibe", "name": "INCIBE", "country": "España", "url": "https://www.incibe.es/linea-de-ayuda-en-ciberseguridad/faq"},
-    {"id": "edps", "name": "EDPS", "country": "Unión Europea", "url": "https://www.edps.europa.eu/frequently-asked-questions_en"},
-    {"id": "edpb", "name": "EDPB", "country": "Unión Europea", "url": "https://www.edpb.europa.eu/contact/frequently-asked-questions_en"},
-    {"id": "enisa", "name": "ENISA", "country": "Unión Europea", "url": "https://www.enisa.europa.eu"},
-    {"id": "ico", "name": "ICO", "country": "Reino Unido", "url": "https://ico.org.uk"},
-    {"id": "nist", "name": "NIST", "country": "Estados Unidos", "url": "https://www.nist.gov/cyberframework"},
-    {"id": "cisa", "name": "CISA", "country": "Estados Unidos", "url": "https://www.cisa.gov"}
+    {
+      "id": "aepd",
+      "name": "AEPD (FAQs)",
+      "country": "España",
+      "url": "https://www.aepd.es/preguntas-frecuentes"
+    },
+    {
+      "id": "aepd_guides",
+      "name": "AEPD (Guías)",
+      "country": "España",
+      "url": "https://www.aepd.es/guias-y-herramientas/guias"
+    },
+    {
+      "id": "ccn_cert",
+      "name": "CCN-CERT",
+      "country": "España",
+      "url": "https://www.ccn-cert.cni.es/es/sobre-nosotros/faq.html"
+    },
+    {
+      "id": "incibe",
+      "name": "INCIBE",
+      "country": "España",
+      "url": "https://www.incibe.es/linea-de-ayuda-en-ciberseguridad/faq"
+    },
+    {
+      "id": "edps",
+      "name": "EDPS",
+      "country": "Unión Europea",
+      "url": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edpb",
+      "name": "EDPB",
+      "country": "Unión Europea",
+      "url": "https://www.edpb.europa.eu/contact/frequently-asked-questions_en"
+    },
+    {
+      "id": "enisa",
+      "name": "ENISA",
+      "country": "Unión Europea",
+      "url": "https://www.enisa.europa.eu"
+    },
+    {
+      "id": "ico",
+      "name": "ICO",
+      "country": "Reino Unido",
+      "url": "https://ico.org.uk"
+    },
+    {
+      "id": "nist",
+      "name": "NIST",
+      "country": "Estados Unidos",
+      "url": "https://www.nist.gov/cyberframework"
+    },
+    {
+      "id": "cisa",
+      "name": "CISA",
+      "country": "Estados Unidos",
+      "url": "https://www.cisa.gov"
+    }
   ],
   "categories": [
-    {"id": "conceptos", "name": "Conceptos básicos", "icon": "🧭"},
-    {"id": "derechos", "name": "Derechos de los afectados", "icon": "🛡️"},
-    {"id": "obligaciones", "name": "Obligaciones del responsable", "icon": "🏢"},
-    {"id": "dpd", "name": "Delegado de Protección de Datos", "icon": "👤"},
-    {"id": "brechas", "name": "Brechas de datos", "icon": "🚨"},
-    {"id": "video", "name": "Videovigilancia", "icon": "🎥"},
-    {"id": "menores", "name": "Menores y educación", "icon": "🎓"},
-    {"id": "internet", "name": "Internet y redes sociales", "icon": "🌐"},
-    {"id": "reclamaciones", "name": "Reclamaciones", "icon": "📮"},
-    {"id": "ciberseguridad_conceptos", "name": "Conceptos de ciberseguridad", "icon": "🛰️"},
-    {"id": "incidentes", "name": "Gestión de incidentes", "icon": "🆘"},
-    {"id": "nis2", "name": "Directiva NIS2", "icon": "📋"},
-    {"id": "nis", "name": "Marcos y frameworks", "icon": "🏗️"},
-    {"id": "ransomware", "name": "Ransomware", "icon": "🔒"}
+    {
+      "id": "conceptos",
+      "name": "Conceptos básicos",
+      "icon": "🧭"
+    },
+    {
+      "id": "derechos",
+      "name": "Derechos de los afectados",
+      "icon": "🛡️"
+    },
+    {
+      "id": "obligaciones",
+      "name": "Obligaciones del responsable",
+      "icon": "🏢"
+    },
+    {
+      "id": "dpd",
+      "name": "Delegado de Protección de Datos",
+      "icon": "👤"
+    },
+    {
+      "id": "brechas",
+      "name": "Brechas de datos",
+      "icon": "🚨"
+    },
+    {
+      "id": "video",
+      "name": "Videovigilancia",
+      "icon": "🎥"
+    },
+    {
+      "id": "menores",
+      "name": "Menores y educación",
+      "icon": "🎓"
+    },
+    {
+      "id": "internet",
+      "name": "Internet y redes sociales",
+      "icon": "🌐"
+    },
+    {
+      "id": "reclamaciones",
+      "name": "Reclamaciones",
+      "icon": "📮"
+    },
+    {
+      "id": "ciberseguridad_conceptos",
+      "name": "Conceptos de ciberseguridad",
+      "icon": "🛰️"
+    },
+    {
+      "id": "incidentes",
+      "name": "Gestión de incidentes",
+      "icon": "🆘"
+    },
+    {
+      "id": "nis2",
+      "name": "Directiva NIS2",
+      "icon": "📋"
+    },
+    {
+      "id": "nis",
+      "name": "Marcos y frameworks",
+      "icon": "🏗️"
+    },
+    {
+      "id": "ransomware",
+      "name": "Ransomware",
+      "icon": "🔒"
+    }
+  ],
+  "faqs": [
+    {
+      "id": "aepd_001",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué es un dato personal?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos"
+    },
+    {
+      "id": "aepd_002",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se considera la matrícula de un coche dato personal?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos"
+    },
+    {
+      "id": "aepd_003",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Es la dirección de correo electrónico un dato personal?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos"
+    },
+    {
+      "id": "aepd_004",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué son los datos sensibles?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos"
+    },
+    {
+      "id": "aepd_005",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Los datos anonimizados son datos personales?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos"
+    },
+    {
+      "id": "aepd_006",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Y los datos seudonimizados son datos personales?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos"
+    },
+    {
+      "id": "aepd_007",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué es un tratamiento de datos personales?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos"
+    },
+    {
+      "id": "aepd_008",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Quién es un responsable del tratamiento?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos"
+    },
+    {
+      "id": "aepd_009",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Quién es un encargado del tratamiento?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos"
+    },
+    {
+      "id": "aepd_010",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puedo hacer una fotografía o una grabación para denunciar una infracción?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/0-conceptos-basicos"
+    },
+    {
+      "id": "aepd_011",
+      "source": "aepd",
+      "category": "obligaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Pueden contener datos de salud los justificantes de ausencia laboral?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/3-proteccion-de-datos-en-el-ambito-laboral"
+    },
+    {
+      "id": "aepd_012",
+      "source": "aepd",
+      "category": "obligaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Acceso del comité de empresa a un listado de los trabajadores beneficiarios de la acción social.",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/3-proteccion-de-datos-en-el-ambito-laboral"
+    },
+    {
+      "id": "aepd_013",
+      "source": "aepd",
+      "category": "obligaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Las tarjetas identificativas de los trabajadores, ¿pueden incluir nombre y apellidos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/3-proteccion-de-datos-en-el-ambito-laboral"
+    },
+    {
+      "id": "aepd_014",
+      "source": "aepd",
+      "category": "obligaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Pueden cederse los datos de salarios y RNT de una subcontrata a la empresa principal?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/3-proteccion-de-datos-en-el-ambito-laboral"
+    },
+    {
+      "id": "aepd_015",
+      "source": "aepd",
+      "category": "obligaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se puede instalar GPS en los coches de empresa que utilizan los trabajadores?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/3-proteccion-de-datos-en-el-ambito-laboral"
+    },
+    {
+      "id": "aepd_016",
+      "source": "aepd",
+      "category": "obligaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se pueden solicitar los antecedentes penales para un puesto de trabajo?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/3-proteccion-de-datos-en-el-ambito-laboral"
+    },
+    {
+      "id": "aepd_017",
+      "source": "aepd",
+      "category": "obligaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puede solicitar el empresario el teléfono y dirección de correo electrónico particular del trabajador?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/3-proteccion-de-datos-en-el-ambito-laboral"
+    },
+    {
+      "id": "aepd_018",
+      "source": "aepd",
+      "category": "obligaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Es factible comunicar los resultados de reconocimientos médicos al empresario, comité de empresa y sección sindical?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/3-proteccion-de-datos-en-el-ambito-laboral"
+    },
+    {
+      "id": "aepd_019",
+      "source": "aepd",
+      "category": "obligaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Es necesario el consentimiento del trabajador para implantar un sistema de control horario? ¿Hay que informarle acerca de las medidas de control establecidas?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/3-proteccion-de-datos-en-el-ambito-laboral"
+    },
+    {
+      "id": "aepd_020",
+      "source": "aepd",
+      "category": "obligaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "En el caso de que se trabaje con proveedores, ¿Cómo se establece esa relación para el control horario?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/3-proteccion-de-datos-en-el-ambito-laboral"
+    },
+    {
+      "id": "aepd_021",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿En qué casos la AEPD puede actuar frente a las llamadas comerciales?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/5-publicidad-no-deseada"
+    },
+    {
+      "id": "aepd_022",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Está permitido hacer llamadas automatizadas (sin intervención humana) con fines comerciales?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/5-publicidad-no-deseada"
+    },
+    {
+      "id": "aepd_023",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿En qué situaciones se permite hacer llamadas no solicitadas con fines comerciales, con intervención humana?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/5-publicidad-no-deseada"
+    },
+    {
+      "id": "aepd_024",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Si mis datos figuran en las guías de abonados, ¿puedo recibir llamadas con fines comerciales?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/5-publicidad-no-deseada"
+    },
+    {
+      "id": "aepd_025",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Estoy inscrito en un sistema de exclusión publicitaria y sigo recibiendo llamadas. ¿Qué puedo hacer?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/5-publicidad-no-deseada"
+    },
+    {
+      "id": "aepd_026",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puedo recibir llamadas publicitarias si soy un empresario individual o un profesional liberal?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/5-publicidad-no-deseada"
+    },
+    {
+      "id": "aepd_027",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cómo se garantizan mis derechos de protección de datos cuando recibo una llamada?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/5-publicidad-no-deseada"
+    },
+    {
+      "id": "aepd_028",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué requisitos son necesarios para incluir a una persona física en un tratamiento de solvencia patrimonial y crédito (\"fichero de morosos\")?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/7-solvencia-patrimonial"
+    },
+    {
+      "id": "aepd_029",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "He sido incluido en un tratamiento de solvencia patrimonial y crédito (\"fichero de morosos\"), pero desconozco en cuál. ¿Qué puedo hacer?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/7-solvencia-patrimonial"
+    },
+    {
+      "id": "aepd_030",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cuándo puedo interponer una reclamación ante la AEPD debido a que se me ha incluido en un tratamiento de solvencia patrimonial y crédito (\"fichero de morosos\")?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/7-solvencia-patrimonial"
+    },
+    {
+      "id": "aepd_031",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Me reclaman una deuda por la prestación de un servicio con la que no estoy de acuerdo. ¿Puedo acudir a la Agencia Española de Protección de Datos y denunciarlo?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/7-solvencia-patrimonial"
+    },
+    {
+      "id": "aepd_032",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Es legal la actuación de una empresa de recobros? ¿Quién les ha cedido mis datos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/7-solvencia-patrimonial"
+    },
+    {
+      "id": "aepd_033",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cuánto tiempo puedo estar incluido en un tratamiento de solvencia patrimonial y crédito (\"fichero de morosos\")?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/7-solvencia-patrimonial"
+    },
+    {
+      "id": "aepd_034",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Me reclaman una deuda llamando a mis familiares y amigos. ¿Es legal esta comunicación?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/7-solvencia-patrimonial"
+    },
+    {
+      "id": "aepd_035",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Una empresa de recobros me está reclamando una deuda que no es mía. Y además me han incluido en un tratamiento de solvencia patrimonial y crédito (\"fichero de morosos\") ¿Qué puedo hacer?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/7-solvencia-patrimonial"
+    },
+    {
+      "id": "aepd_036",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "He solicitado la supresión de mis datos al tratamiento de solvencia patrimonial y crédito (\"fichero de morosos\") y no me ha contestado ¿Puedo reclamar?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/7-solvencia-patrimonial"
+    },
+    {
+      "id": "aepd_037",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Ya he pagado mi deuda y sigo incluido en un tratamiento de solvencia patrimonial y crédito (\"fichero de morosos\") ¿Qué puedo hacer?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/7-solvencia-patrimonial"
+    },
+    {
+      "id": "aepd_038",
+      "source": "aepd",
+      "category": "video",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "La instalación de videocámaras ¿Supone un tratamiento de datos de carácter personal?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/8-videovigilancia"
+    },
+    {
+      "id": "aepd_039",
+      "source": "aepd",
+      "category": "video",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué obligaciones se deben cumplir para la instalación de videocámaras?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/8-videovigilancia"
+    },
+    {
+      "id": "aepd_040",
+      "source": "aepd",
+      "category": "video",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Quiero poner una cámara en una moto para grabar mis viajes. ¿Es legal esta captación?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/8-videovigilancia"
+    },
+    {
+      "id": "aepd_041",
+      "source": "aepd",
+      "category": "video",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se puede grabar la vía pública con fines de seguridad?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/8-videovigilancia"
+    },
+    {
+      "id": "aepd_042",
+      "source": "aepd",
+      "category": "video",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se pueden instalar cámaras con la finalidad de control empresarial?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/8-videovigilancia"
+    },
+    {
+      "id": "aepd_043",
+      "source": "aepd",
+      "category": "video",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cómo deben estar colocadas las cámaras y los monitores de grabación?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/8-videovigilancia"
+    },
+    {
+      "id": "aepd_044",
+      "source": "aepd",
+      "category": "video",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se pueden grabar los Plenos de los Ayuntamientos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/8-videovigilancia"
+    },
+    {
+      "id": "aepd_045",
+      "source": "aepd",
+      "category": "video",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Tengo instalada una cámara con fines de seguridad que no graba, sólo permite el visionado en tiempo real. ¿Tengo que cumplir alguna obligación?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/8-videovigilancia"
+    },
+    {
+      "id": "aepd_046",
+      "source": "aepd",
+      "category": "video",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se aplica la normativa de protección de datos a la instalación de las  videocámaras ficticias?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/8-videovigilancia"
+    },
+    {
+      "id": "aepd_047",
+      "source": "aepd",
+      "category": "video",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué requisitos son necesarios para instalar videocámaras en comunidades de vecinos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/8-videovigilancia"
+    },
+    {
+      "id": "aepd_048",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se aplica la normativa de protección de datos a las comunidades de propietarios?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/9-comunidades-de-propietarios"
+    },
+    {
+      "id": "aepd_049",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cuáles son las principales obligaciones?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/9-comunidades-de-propietarios"
+    },
+    {
+      "id": "aepd_050",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Es obligatorio la inscripción de ficheros de la comunidad en la Agencia?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/9-comunidades-de-propietarios"
+    },
+    {
+      "id": "aepd_051",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Es necesario realizar  el análisis de riesgos a los tratamientos de la comunidad de propietarios?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/9-comunidades-de-propietarios"
+    },
+    {
+      "id": "aepd_052",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Las comunidades de propietarios ¿Deben nombrar un delegado de protección de datos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/9-comunidades-de-propietarios"
+    },
+    {
+      "id": "aepd_053",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puede tener acceso un propietario a los gastos de su comunidad?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/9-comunidades-de-propietarios"
+    },
+    {
+      "id": "aepd_054",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puede conocer un propietario los empleados de una comunidad?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/9-comunidades-de-propietarios"
+    },
+    {
+      "id": "aepd_055",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Es posible conocer por parte de un vecino el nombre del resto de propietarios del inmueble?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/9-comunidades-de-propietarios"
+    },
+    {
+      "id": "aepd_056",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se puede exponer, cumpliendo ciertos requisitos, en el tablón de anuncios de la comunidad la relación de los vecinos morosos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/9-comunidades-de-propietarios"
+    },
+    {
+      "id": "aepd_057",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "En nuestra comunidad de vecinos hay cámaras de videovigilancia ¿Son legales?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/9-comunidades-de-propietarios"
+    },
+    {
+      "id": "aepd_058",
+      "source": "aepd",
+      "category": "menores",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cuál es la edad para que los menores puedan prestar consentimiento para tratar sus datos personales?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/10-menores-y-educacion"
+    },
+    {
+      "id": "aepd_059",
+      "source": "aepd",
+      "category": "menores",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se pueden recabar y tratar datos personales de menores?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/10-menores-y-educacion"
+    },
+    {
+      "id": "aepd_060",
+      "source": "aepd",
+      "category": "menores",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puede un menor de 14 años ejercitar los derechos contemplados en el RGPD?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/10-menores-y-educacion"
+    },
+    {
+      "id": "aepd_061",
+      "source": "aepd",
+      "category": "menores",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se pueden tomar imágenes o grabar vídeos en eventos escolares?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/10-menores-y-educacion"
+    },
+    {
+      "id": "aepd_062",
+      "source": "aepd",
+      "category": "menores",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Pueden acceder los progenitores a las historias clínicas de sus hijos mayores de 14 años?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/10-menores-y-educacion"
+    },
+    {
+      "id": "aepd_063",
+      "source": "aepd",
+      "category": "menores",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Dónde puedo obtener más información sobre el tratamiento de datos de menores?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/10-menores-y-educacion"
+    },
+    {
+      "id": "aepd_064",
+      "source": "aepd",
+      "category": "menores",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Están obligados los centros docentes a designar un delegado de protección de datos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/10-menores-y-educacion"
+    },
+    {
+      "id": "aepd_065",
+      "source": "aepd",
+      "category": "menores",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Para la realización de actividades que implican contacto habitual con menores de edad, es obligatorio aportar un Certificado Negativo de Delitos de Naturaleza Sexual?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/10-menores-y-educacion"
+    },
+    {
+      "id": "aepd_066",
+      "source": "aepd",
+      "category": "menores",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puede un progenitor que no convive con sus hijos menores obtener un certificado de empadronamiento de los pequeños?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/10-menores-y-educacion"
+    },
+    {
+      "id": "aepd_067",
+      "source": "aepd",
+      "category": "menores",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Pueden los centros educativos impartir clases y realizar exámenes online sin el consentimiento de los interesados?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/10-menores-y-educacion"
+    },
+    {
+      "id": "aepd_068",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué es el derecho de acceso a la información pública?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/11-transparencia-y-pd"
+    },
+    {
+      "id": "aepd_069",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Si la información solicitada contiene datos de carácter personal ¿Prevalece el derecho a la protección datos o debe entregarse la información?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/11-transparencia-y-pd"
+    },
+    {
+      "id": "aepd_070",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se debe conceder el acceso a las retribuciones y productividad del personal de un Ministerio?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/11-transparencia-y-pd"
+    },
+    {
+      "id": "aepd_071",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Se debe facilitar el acceso a las relaciones de puestos de trabajo así como la identidad de la persona que desempeña un determinado puesto en un Ministerio?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/11-transparencia-y-pd"
+    },
+    {
+      "id": "aepd_072",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Existe algún límite para el acceso a las retribuciones y relaciones de puestos de trabajo con identificación de sus titulares?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/11-transparencia-y-pd"
+    },
+    {
+      "id": "aepd_073",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puedo acceder a la documentación del resto de candidatos de un concurso-oposición?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/11-transparencia-y-pd"
+    },
+    {
+      "id": "aepd_074",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué es la publicidad activa?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/11-transparencia-y-pd"
+    },
+    {
+      "id": "aepd_075",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Cuando se publican los Convenios y Encomiendas de Gestión ¿Podrían publicarse con las firmas manuscritas de los firmantes?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/11-transparencia-y-pd"
+    },
+    {
+      "id": "aepd_076",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Es posible publicar un listado de las comisiones de servicios con indicación de los puestos de origen, puesto de destino e identificación de los empleados públicos, con indicación de sus nombres y apellidos de un Ministerio?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/11-transparencia-y-pd"
+    },
+    {
+      "id": "aepd_077",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Pueden publicarse las actas de un órgano colegiado incluyendo las deliberaciones de cada uno de sus miembros?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/11-transparencia-y-pd"
+    },
+    {
+      "id": "aepd_078",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué es la sede electrónica? Trámites electrónicos. Registro electrónico y sede virtual",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/12-sede-electronica"
+    },
+    {
+      "id": "aepd_079",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Trámites ante la sede electrónica. Acceso a la sede. Cómputo de plazos",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/12-sede-electronica"
+    },
+    {
+      "id": "aepd_080",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Existe obligación de identificarse siempre para acceder a la Sede?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/12-sede-electronica"
+    },
+    {
+      "id": "aepd_081",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cómo se accede a la sede electrónica de la AEPD?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/12-sede-electronica"
+    },
+    {
+      "id": "aepd_082",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué es un certificado electrónico? ¿Dónde se puede obtener?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/12-sede-electronica"
+    },
+    {
+      "id": "aepd_083",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Es seguro utilizar los servicios disponibles en la sede electrónica?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/12-sede-electronica"
+    },
+    {
+      "id": "aepd_084",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cómo configurar el Acrobat Reader para que confíe en el certificado raíz del sello electrónico del Registro Electrónico?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/12-sede-electronica"
+    },
+    {
+      "id": "aepd_085",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cómo configurar los certificados raíz en el navegador?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/12-sede-electronica"
+    },
+    {
+      "id": "aepd_086",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Requerimientos técnicos de la sede",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/12-sede-electronica"
+    },
+    {
+      "id": "aepd_087",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué necesito para realizar mis trámites a través de medios electrónicos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/12-sede-electronica"
+    },
+    {
+      "id": "aepd_088",
+      "source": "aepd",
+      "category": "reclamaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cómo puedo interponer una reclamación si han vulnerado mis datos de carácter personal?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/13-reclamaciones"
+    },
+    {
+      "id": "aepd_089",
+      "source": "aepd",
+      "category": "reclamaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "He presentado una reclamación ante la AEPD, ¿qué plazos tiene para contestarme?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/13-reclamaciones"
+    },
+    {
+      "id": "aepd_090",
+      "source": "aepd",
+      "category": "reclamaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puedo interponer una reclamación respecto al ejercicio de los derechos de protección de datos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/13-reclamaciones"
+    },
+    {
+      "id": "aepd_091",
+      "source": "aepd",
+      "category": "reclamaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puedo reclamar directamente a la AEPD si se está incumpliendo la normativa en materia de protección de datos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/13-reclamaciones"
+    },
+    {
+      "id": "aepd_092",
+      "source": "aepd",
+      "category": "reclamaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Si interpongo una reclamación y el responsable es sancionado ¿Puedo obtener una indemnización económica?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/13-reclamaciones"
+    },
+    {
+      "id": "aepd_093",
+      "source": "aepd",
+      "category": "reclamaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Ante quién debo reclamar si no estoy de acuerdo con mis facturas de telefonía?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/13-reclamaciones"
+    },
+    {
+      "id": "aepd_094",
+      "source": "aepd",
+      "category": "reclamaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cuáles son las competencias de la Autoridad Catalana de Protección de Datos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/13-reclamaciones"
+    },
+    {
+      "id": "aepd_095",
+      "source": "aepd",
+      "category": "reclamaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cuáles son las competencias de la Autoridad Vasca de Protección de Datos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/13-reclamaciones"
+    },
+    {
+      "id": "aepd_096",
+      "source": "aepd",
+      "category": "reclamaciones",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cuáles son las competencias del Consejo de Transparencia y Protección de Datos de Andalucía?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/13-reclamaciones"
+    },
+    {
+      "id": "aepd_097",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cómo puedo evitar que las formaciones políticas me envíen propaganda electoral postal?\"",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/14-procesos-electorales"
+    },
+    {
+      "id": "aepd_098",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué puedo hacer si he recibido propaganda electoral postal, pese a haber solicitado a la Oficina del Censo Electoral la exclusión de mis datos de las listas que se entregan a las candidaturas con esta finalidad?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/14-procesos-electorales"
+    },
+    {
+      "id": "aepd_099",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puedo oponerme a que los partidos políticos usen mis datos personales?\"",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/14-procesos-electorales"
+    },
+    {
+      "id": "aepd_100",
+      "source": "aepd",
+      "category": "conceptos",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué puedo hacer si he recibido correos electrónicos o mensajes SMS?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/14-procesos-electorales"
+    },
+    {
+      "id": "aepd_101",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿En qué consiste el canal prioritario en caso de difusión ilegítima de contenidos sensibles?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/15-canal-prioritario-para-contenidos-sensibles-en-internet"
+    },
+    {
+      "id": "aepd_102",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿En qué casos puedo acudir a este canal?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/15-canal-prioritario-para-contenidos-sensibles-en-internet"
+    },
+    {
+      "id": "aepd_103",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿En qué casos no puedo acudir a este canal?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/15-canal-prioritario-para-contenidos-sensibles-en-internet"
+    },
+    {
+      "id": "aepd_104",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué información necesito aportar a la AEPD cuando haga uso de este canal?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/15-canal-prioritario-para-contenidos-sensibles-en-internet"
+    },
+    {
+      "id": "aepd_105",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cómo puedo acceder a este canal?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/15-canal-prioritario-para-contenidos-sensibles-en-internet"
+    },
+    {
+      "id": "aepd_106",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué sucederá después de solicitar la retirada ante la AEPD?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/15-canal-prioritario-para-contenidos-sensibles-en-internet"
+    },
+    {
+      "id": "aepd_107",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿En qué responsabilidades puede incurrir quien difunda ilegítimamente contenidos sensibles de terceros?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/15-canal-prioritario-para-contenidos-sensibles-en-internet"
+    },
+    {
+      "id": "aepd_108",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cómo puedo proteger mi privacidad en internet?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/17-internet-y-redes-sociales"
+    },
+    {
+      "id": "aepd_109",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "Me han suplantado mi identidad, ¿qué puedo hacer ahora?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/17-internet-y-redes-sociales"
+    },
+    {
+      "id": "aepd_110",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿A dónde me debo dirigir para poder ejercer un derecho en materia de protección de datos?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/17-internet-y-redes-sociales"
+    },
+    {
+      "id": "aepd_111",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué puedo hacer si se difunden imágenes en las que aparezco?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/17-internet-y-redes-sociales"
+    },
+    {
+      "id": "aepd_112",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Puedo acudir a la AEPD si han difundido mis datos personales a través de servicios de mensajería, como WhatsApp, Telegram o los servicios de mensajería de las redes sociales?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/17-internet-y-redes-sociales"
+    },
+    {
+      "id": "aepd_113",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Qué es el derecho al olvido y cómo puedo ejercerlo?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/17-internet-y-redes-sociales"
+    },
+    {
+      "id": "aepd_114",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Por qué son importantes las cookies para la protección de datos personales?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/17-internet-y-redes-sociales"
+    },
+    {
+      "id": "aepd_115",
+      "source": "aepd",
+      "category": "internet",
+      "tags": [
+        "AEPD",
+        "RGPD"
+      ],
+      "question": "¿Cómo debe garantizar una gran red social que el usuario ha prestado libremente su consentimiento al uso de cookies?",
+      "answer": "",
+      "url_original": "https://www.aepd.es/preguntas-frecuentes/17-internet-y-redes-sociales"
+    },
+    {
+      "id": "incibe_01",
+      "source": "incibe",
+      "category": "ciberseguridad_conceptos",
+      "tags": [
+        "INCIBE",
+        "017",
+        "ayuda"
+      ],
+      "question": "¿Qué es el servicio ‘Tu Ayuda en Ciberseguridad’?",
+      "answer": "",
+      "url_original": "https://www.incibe.es/linea-de-ayuda-en-ciberseguridad/faq"
+    },
+    {
+      "id": "edps_02",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "Who are we?",
+      "answer": "The European Data Protection Supervisor (EDPS) is the European Union’s (EU) independent data protection authority. The Supervisor, Wojciech Wiewiórowski, was appointed by a joint decision of the European Parliament and the Council on 6 December 2019 for a five-year term.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_03",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What are our powers?",
+      "answer": "Data protection is a fundamental right, protected by European law and enshrined in Article 8 of the Charter of Fundamental Rights of the European Union. We defend and promote the privacy of individuals and data protection in our day-to-day work. The EDPS’ mission, power and aims are established in accordance with Regulation (EU) 2018/1725 , on the basis of Article 16 of the Treaty on the Functioning of the European Union . The tasks of the EDPS are listed under Article 57 of Regulation (EU) 2018/1725 , while its powers are listed under Article 58 of Regulation (EU) 2018/1725 . To this end, the EDPS has the powers of investigation, corrective powers and sanctions, and authorisation and advisory powers. In particular in case of complaints from individuals, as well as powers to bring infringements of this Regulation to the attention of the Court of Justice and powers to engage in legal proceedings in accordance to the primary law. You can find more detailed explanations on the EDPS’ powers in our dedicated factsheet here .",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_04",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What are our core values?",
+      "answer": "Our work is guided by the following values and principles .",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_05",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What is our role?",
+      "answer": "The EDPS is responsible for monitoring the processing of personal data by the EU institutions, bodies, offices and agencies (EUIs) as well as providing advice on policies and legislation that affect privacy and cooperating with similar authorities to ensure consistent data protection. More specifically, the EDPS has four main fields of work: Other examples of European bodies and agencies that we supervise are Europol under Regulation 2016/794 and Eurojust under Regulation 2018/1727 . Our mission is also to raise awareness on risks and protect people’s rights and freedoms when their personal data is processed.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_06",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What is our supervisory role?",
+      "answer": "EUIs consult us for advice via their Data Protection Officers (DPOs). Some of these consultations are mandatory, while others are voluntary. Advice is given in our Opinions , comments , Decisions , letters or papers and guidelines . You can find out more about the EDPS’ Supervisory role here .",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_07",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What is our enforcement role?",
+      "answer": "If EUIs do not comply with data protection rules, the EDPS can use the enforcement powers set out in the Regulation, such as: More information on the factors the EDPS takes into account when imposing administrative fines or sanctions can be found here .",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_08",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What is the EDPB?",
+      "answer": "The European Data Protection Board (EDPB) is established by the General Data Protection Regulation (GDPR) . It is an independent European body, contributing to the consistent application of data protection rules throughout the European Union (EU Member States), and promotes cooperation between the EU’s Data Protection Authorities (DPA). The EDPS provides an independent secretariat to the EDPB. The Secretariat offers administrative and logistic support for the EDPB as well as performing analytical work and contribute to the EDPB’s tasks. A Memorandum of Understanding determines the terms of cooperation between the EDPB and the EDPS.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_09",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "How do we work?",
+      "answer": "At the beginning of each mandate, the EDPS adopts a strategy outlining the priorities for the next five years. On 30 June 2020, Supervisor Wojciech Wiewiórowski unveiled its strategy : Shaping a Safer Digital Future: a new Strategy for a new decade . The EDPS Strategy sets out the guiding actions and objectives till the end of 2024 under three core pillars : Foresight , Action , and Solidarity .",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_10",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "How are we held accountable?",
+      "answer": "To ensure that the EDPS’ actions are aligned with its objectives and goals, the strategy is kept under regular review as a reference point for our staff and stakeholders. Each year, around April, the EDPS presents and makes public its Annual Report highlighting the main actions and achievements of the past year. Our latest Annual Report 2019 can be found here. The EDPS also published on 3 December 2019 a mandate review detailing and explaining the work achieved during its mandate 2015-2019. This mandate review is called Leading by Example: EDPS 2015-2019 . We also regularly publish Opinions , Guidelines , Papers informing and updating the data protection community and the general public of our work.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_11",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What is considered as personal data?",
+      "answer": "Personal data is any information that relates to an identified or identifiable natural person. In practice this can mean your name, email address, contact details, should you participate to an event, such as a study visit for example, within the institutions. If you are a member of EU staff or trainee, this can also include your salary, medical records, performance evaluation, telecommunications data, for example.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_12",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What does consent mean?",
+      "answer": "When an individual gives consent for their personal data to be processed, this consent must be freely given, specific, informed by a clear and unambiguous statement that indicates such an agreement.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_13",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What does processing personal data mean?",
+      "answer": "Processing personal data , means any operation or set of operations, which is performed on personal data, either by manual or automated means, such as collecting, recording, organisation, structuring, storage, adaptation or alteration, transmission, for example. In practice this might mean when a EUI collects your contact details.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_14",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "When do EU institutions, bodies, agencies (EUIs) process your data?",
+      "answer": "EUIs may process your data in the context of various administrative procedures such as recruitment and employment, tenders and open calls for expressions of interests, study visits. Your data can only be processed if it serves a legitimate purpose, a necessity and proportionality test must always be carried out beforehand.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_15",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What are your rights when EUIs process your personal data?",
+      "answer": "As an individual, you have the right of access , right to rectification , right to erasure of your personal data, the right to restriction of processing, right to object to the processing of personal data.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_16",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "How does the EDPS help the EUIs make responsible and informed choices when they process personal data?",
+      "answer": "Alongside our monitoring, supervising and enforcement powers, we regularly produce factsheets and flowcharts on various aspects of data protection to guide Data Protection Officers (DPOs) and Data Protection Authorities (DPAs). You can find them here .",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_17",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What is a Data Protection Officer, a controller, a joint controller and a processor?",
+      "answer": "A Data Protection Officer, as defined in Chapter IV Section 6 of Regulation 2018/1725 , is usually a member of staff of the EU institution, office, body or agency designated for a term of three to five years. They must be independent, impartial, respect confidentiality and provide advice to the controller especially in the context of carrying a Data Protection Impact Assessment (DPIAS), for example. A complete list of the EU institutions, bodies, offices and agencies’ DPOs can be found here. A controller is responsible for determining the purposes and means for the processing of personal data. The controller must check whether the processing of data complies with a certain number of principles, such as lawfulness, fairness, transparency, purpose limitation etc. Joint-controllers means there is more than one controller in the EU institution, body or agency as outlined in Article 28 of Regulation 2018/1725 . You can find more information on the duties of a controller here . A processor processes personal data under documented instructions of the controller, governed by a binding contract or legal act. They must maintain records of the processing and only process data with prior authorisation and legitimate purposes. You can find more information on the duties of a processor here .",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_18",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What is confidentiality?",
+      "answer": "Confidentiality means the duty to not share information with people who are not qualified to receive this information, as indicated in Article 4 of Regulation 2018/1725.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_19",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "What is a data breach?",
+      "answer": "A personal data breach means a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_20",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "How can the EDPS help you?",
+      "answer": "The scope of the competences of the EDPS covers the processing of personal information of the EU institutions, bodies, offices and agencies only. If an individual believes his or her data is inaccurate or has been wrongfully processed by a company or organisation whose activities are carried out in the EU, he or she should first contact the national Data Protection Authority of their home country.",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_21",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "How to make a complaint to the EDPS if a European institution, body, office or agency (EUIs) wrongfully processes your personal data?",
+      "answer": "The EDPS recommends that you first notify the EUI responsible for processing your data and ask them to take action. If you do not obtain a response or are unsatisfied with it, you should contact the Data Protection Officer (DPO) of the EUI concerned. You can also lodge a complaint with the EDPS, who will examine your request and adopt the necessary measures. You can also bring an action before the Court of Justice of the European Union. The EDPS complaint form and relevant information can be found here .",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_22",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "Can my personal data be transferred outside the European Union?",
+      "answer": "In their daily activities, EU institutions and bodies may need to transfer personal data to recipients outside the European Union. These activities can include dealings with foreign public entities (for anti-fraud or competition investigations, for example), the outsourcing of services to external providers located outside the EU and/or processing the data outside the EU (e.g. cloud computing, web-services), or when arranging staff work trips to non-EU countries. More information on international data transfers .",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_23",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "How can I keep up with the EDPS’ work?",
+      "answer": "The EDPS regularly publishes various Press Releases, Publications , Factsheets and other content to keep the data protection community up-to-date with our work on our website and social channels Twitter , LinkedIn and YouTube . You can also subscribe to our monthly newsletter , which gives you a recap of all the EDPS’ activities in a short, concise and informative way. We try and make our work in the field of data protection as accessible as possible, but, if you are still unsure about certain legal terms we use, you can find more information in our Glossary. If you have any further questions, please Contact Us .",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_25",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "Newsletter Digest - Episode 22 is out",
+      "answer": "",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_26",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "EDPS publishes Opinion on proposal to modernise Eurojust",
+      "answer": "",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    },
+    {
+      "id": "edps_27",
+      "source": "edps",
+      "category": "conceptos",
+      "tags": [
+        "EDPS",
+        "EU",
+        "RGPD"
+      ],
+      "question": "EDPS publishes Opinion on Europol proposals",
+      "answer": "",
+      "url_original": "https://www.edps.europa.eu/frequently-asked-questions_en"
+    }
   ],
   "guides": [
     {
@@ -43,78 +1872,136 @@
       "source": "aepd_guides",
       "type": "guide",
       "category": "conceptos",
-      "topic": "Inteligencia Artificial",
+      "topic": "",
       "title": "Exactitud, idoneidad y calidad de los datos en tratamientos de datos personales con Inteligencia Artificial",
-      "summary": "Guía que analiza los principios de exactitud, idoneidad y calidad aplicables al tratamiento de datos personales en sistemas de IA, con orientaciones prácticas para responsables del tratamiento.",
+      "summary": "",
       "published_date": "2026-07-21",
-      "tags": ["IA", "AEPD", "RGPD", "calidad de datos"],
-      "url": "https://www.aepd.es/guias-y-herramientas/guias",
-      "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
+      "tags": [
+        "AEPD",
+        "guía",
+        "oficial"
+      ],
+      "url": "https://www.aepd.es/guias/calidad-datos-inteligencia-artificial.pdf",
+      "url_original": "https://www.aepd.es/guias/calidad-datos-inteligencia-artificial.pdf"
     },
     {
       "id": "guide_002",
       "source": "aepd_guides",
       "type": "guide",
-      "category": "obligaciones",
-      "topic": "Administración Pública",
+      "category": "conceptos",
+      "topic": "",
       "title": "Recomendaciones para fortalecer el cumplimiento de la normativa de protección de datos en la AGE",
-      "summary": "Documento dirigido a la Administración General del Estado con recomendaciones para reforzar el cumplimiento del RGPD y la LOPDGDD en sus tratamientos de datos personales.",
+      "summary": "",
       "published_date": "2026-07-14",
-      "tags": ["AGE", "cumplimiento", "AEPD"],
-      "url": "https://www.aepd.es/guias-y-herramientas/guias",
-      "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
+      "tags": [
+        "AEPD",
+        "guía",
+        "oficial"
+      ],
+      "url": "https://www.aepd.es/guias/recomendaciones-sector-publico-age.pdf",
+      "url_original": "https://www.aepd.es/guias/recomendaciones-sector-publico-age.pdf"
     },
     {
       "id": "guide_003",
       "source": "aepd_guides",
       "type": "guide",
-      "category": "internet",
-      "topic": "Internet y nuevas tecnologías",
+      "category": "conceptos",
+      "topic": "",
       "title": "Recomendaciones y mejores prácticas para la protección de datos personales en videojuegos",
-      "summary": "Orientaciones dirigidas a desarrolladores y editores de videojuegos sobre el tratamiento de datos personales, incluyendo menores, monetización y servicios online.",
+      "summary": "",
       "published_date": "2026-06-18",
-      "tags": ["videojuegos", "menores", "AEPD"],
-      "url": "https://www.aepd.es/guias-y-herramientas/guias",
-      "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
+      "tags": [
+        "AEPD",
+        "guía",
+        "oficial"
+      ],
+      "url": "https://www.aepd.es/guias/recomendaciones-industria-videojuego.pdf",
+      "url_original": "https://www.aepd.es/guias/recomendaciones-industria-videojuego.pdf"
     },
     {
       "id": "guide_004",
       "source": "aepd_guides",
       "type": "guide",
-      "category": "video",
-      "topic": "Videovigilancia",
+      "category": "conceptos",
+      "topic": "",
       "title": "Orientaciones sobre el uso de videocámaras en el hogar de personas mayores",
-      "summary": "Guía sobre la instalación de videocámaras en domicilios de personas mayores para su protección y cuidado, respetando los principios de protección de datos y la dignidad de la persona.",
+      "summary": "",
       "published_date": "2026-06-08",
-      "tags": ["videovigilancia", "mayores", "hogar", "AEPD"],
-      "url": "https://www.aepd.es/guias-y-herramientas/guias",
-      "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
+      "tags": [
+        "AEPD",
+        "guía",
+        "oficial"
+      ],
+      "url": "https://www.aepd.es/guias/orientaciones-videocamaras-hogar-personas-mayores.pdf",
+      "url_original": "https://www.aepd.es/guias/orientaciones-videocamaras-hogar-personas-mayores.pdf"
     },
     {
       "id": "guide_005",
       "source": "aepd_guides",
       "type": "guide",
       "category": "conceptos",
-      "topic": "Privacidad",
+      "topic": "",
       "title": "Declaración institucional sobre el fortalecimiento de la cultura de la privacidad y la protección de datos personales",
-      "summary": "Declaración institucional de la AEPD que subraya la importancia de promover una cultura de la privacidad como pilar de la sociedad digital.",
+      "summary": "",
       "published_date": "2026-04-24",
-      "tags": ["privacidad", "cultura", "AEPD"],
-      "url": "https://www.aepd.es/guias-y-herramientas/guias",
-      "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
+      "tags": [
+        "AEPD",
+        "guía",
+        "oficial"
+      ],
+      "url": "https://www.aepd.es/documento/declaracion-institucional-autoridades-aniversario-RGPD.pdf",
+      "url_original": "https://www.aepd.es/documento/declaracion-institucional-autoridades-aniversario-RGPD.pdf"
+    },
+    {
+      "id": "guide_012",
+      "source": "aepd_guides",
+      "type": "guide",
+      "category": "conceptos",
+      "topic": "",
+      "title": "Declaració institucional sobre l’enfortiment de la cultura de la privacitat i la protecció de dades personals",
+      "summary": "",
+      "published_date": "2026-04-24",
+      "tags": [
+        "AEPD",
+        "guía",
+        "oficial"
+      ],
+      "url": "https://www.aepd.es/documento/declaracion-institucional-autoridades-aniversario-RGPD-cat.pdf",
+      "url_original": "https://www.aepd.es/documento/declaracion-institucional-autoridades-aniversario-RGPD-cat.pdf"
     },
     {
       "id": "guide_006",
       "source": "aepd_guides",
       "type": "guide",
-      "category": "menores",
-      "topic": "Educación y menores",
+      "category": "conceptos",
+      "topic": "",
       "title": "Principios básicos para la contratación y uso de plataformas educativas digitales por las administraciones educativas y centros docentes",
-      "summary": "Orientaciones para las administraciones educativas y centros docentes sobre la contratación y uso de plataformas digitales educativas respetando la normativa de protección de datos.",
+      "summary": "",
       "published_date": "2026-03-23",
-      "tags": ["educación", "plataformas digitales", "menores", "AEPD"],
-      "url": "https://www.aepd.es/guias-y-herramientas/guias",
-      "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
+      "tags": [
+        "AEPD",
+        "guía",
+        "oficial"
+      ],
+      "url": "https://www.aepd.es/documento/apd-plataformas-educativas-administraciones-centros.pdf",
+      "url_original": "https://www.aepd.es/documento/apd-plataformas-educativas-administraciones-centros.pdf"
+    },
+    {
+      "id": "guide_014",
+      "source": "aepd_guides",
+      "type": "guide",
+      "category": "conceptos",
+      "topic": "",
+      "title": "Principis bàsics per a la contractació i l’ús de plataformes educatives digitals per a les administracions educatives i els centres docents",
+      "summary": "",
+      "published_date": "2026-03-23",
+      "tags": [
+        "AEPD",
+        "guía",
+        "oficial"
+      ],
+      "url": "https://www.aepd.es/documento/apd-plataformes-educatives-administracions-centres.pdf",
+      "url_original": "https://www.aepd.es/documento/apd-plataformes-educatives-administracions-centres.pdf"
     },
     {
       "id": "guide_007",
@@ -125,7 +2012,11 @@
       "title": "Guía práctica para la evaluación de riesgos y realización de una Evaluación de Impacto en la Protección de Datos (EIPD)",
       "summary": "Documento práctico que orienta a los responsables del tratamiento en la evaluación de riesgos y la realización de evaluaciones de impacto conforme al RGPD.",
       "published_date": "2025-12-15",
-      "tags": ["EIPD", "riesgos", "RGPD"],
+      "tags": [
+        "EIPD",
+        "riesgos",
+        "RGPD"
+      ],
       "url": "https://www.aepd.es/guias-y-herramientas/guias",
       "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
     },
@@ -138,7 +2029,11 @@
       "title": "Orientaciones y garantías en los tratamientos de datos personales que incorporan Inteligencia Artificial",
       "summary": "Guía sobre los tratamientos de datos personales que utilizan componentes de IA, con orientaciones para aplicar los principios del RGPD y garantizar los derechos de los afectados.",
       "published_date": "2025-11-20",
-      "tags": ["IA", "RGPD", "AEPD"],
+      "tags": [
+        "IA",
+        "RGPD",
+        "AEPD"
+      ],
       "url": "https://www.aepd.es/guias-y-herramientas/guias",
       "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
     },
@@ -151,7 +2046,11 @@
       "title": "Guía para el responsable del tratamiento en las relaciones con los encargados",
       "summary": "Orientaciones para responsables del tratamiento sobre la contratación y supervisión de encargados de tratamiento, incluyendo cláusulas contractuales tipo.",
       "published_date": "2025-10-12",
-      "tags": ["encargado", "contratos", "AEPD"],
+      "tags": [
+        "encargado",
+        "contratos",
+        "AEPD"
+      ],
       "url": "https://www.aepd.es/guias-y-herramientas/guias",
       "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
     },
@@ -164,7 +2063,11 @@
       "title": "Guía práctica para la notificación de brechas de seguridad en tratamientos de datos personales",
       "summary": "Guía orientada a responsables y encargados de tratamiento sobre la gestión y notificación de brechas de seguridad de datos personales conforme al RGPD y la LOPDGDD.",
       "published_date": "2025-09-05",
-      "tags": ["brechas", "notificación", "AEPD"],
+      "tags": [
+        "brechas",
+        "notificación",
+        "AEPD"
+      ],
       "url": "https://www.aepd.es/guias-y-herramientas/guias",
       "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
     },
@@ -177,20 +2080,11 @@
       "title": "Guía de uso de la lista de verificación de protección de datos",
       "summary": "Herramienta práctica para verificar el cumplimiento de las obligaciones básicas en materia de protección de datos por parte de responsables y encargados.",
       "published_date": "2025-07-18",
-      "tags": ["checklist", "cumplimiento", "AEPD"],
-      "url": "https://www.aepd.es/guias-y-herramientas/guias",
-      "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
-    },
-    {
-      "id": "guide_012",
-      "source": "aepd_guides",
-      "type": "guide",
-      "category": "ciberseguridad_conceptos",
-      "topic": "Seguridad/Ciberseguridad",
-      "title": "Guía sobre privacidad y seguridad desde el diseño para aplicaciones móviles",
-      "summary": "Recomendaciones para desarrolladores de apps móviles sobre la aplicación de los principios de privacidad y seguridad desde el diseño y por defecto.",
-      "published_date": "2025-05-10",
-      "tags": ["apps", "diseño", "privacidad"],
+      "tags": [
+        "checklist",
+        "cumplimiento",
+        "AEPD"
+      ],
       "url": "https://www.aepd.es/guias-y-herramientas/guias",
       "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
     },
@@ -203,20 +2097,11 @@
       "title": "Guía para los centros educativos: orientaciones sobre la protección de datos de los menores",
       "summary": "Orientaciones para centros educativos sobre el tratamiento de datos personales de menores, incluyendo videovigilancia, comunicación con familias y plataformas digitales.",
       "published_date": "2025-04-22",
-      "tags": ["educación", "menores", "AEPD"],
-      "url": "https://www.aepd.es/guias-y-herramientas/guias",
-      "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
-    },
-    {
-      "id": "guide_014",
-      "source": "aepd_guides",
-      "type": "guide",
-      "category": "derechos",
-      "topic": "Derechos",
-      "title": "Guía práctica para el ejercicio de los derechos en materia de protección de datos",
-      "summary": "Documento orientativo para los ciudadanos sobre cómo ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad de sus datos personales.",
-      "published_date": "2025-02-14",
-      "tags": ["derechos", "ciudadanos", "AEPD"],
+      "tags": [
+        "educación",
+        "menores",
+        "AEPD"
+      ],
       "url": "https://www.aepd.es/guias-y-herramientas/guias",
       "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
     },
@@ -229,10 +2114,13 @@
       "title": "Protección de datos y relaciones laborales",
       "summary": "Guía dirigida a responsables de tratamiento en el ámbito laboral sobre el tratamiento de datos de personas trabajadoras conforme al RGPD, LOPDGDD y Estatuto de los Trabajadores.",
       "published_date": "2025-01-30",
-      "tags": ["laboral", "empleados", "AEPD"],
+      "tags": [
+        "laboral",
+        "empleados",
+        "AEPD"
+      ],
       "url": "https://www.aepd.es/guias-y-herramientas/guias",
       "url_original": "https://www.aepd.es/guias-y-herramientas/guias"
     }
-  ],
-  "faqs": []
+  ]
 }

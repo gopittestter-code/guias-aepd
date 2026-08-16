@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAQ Hub · Protección de Datos y Ciberseguridad</title>
-  <meta name="description" content="Buscador unificado de preguntas frecuentes oficiales sobre protección de datos y ciberseguridad (AEPD, CCN-CERT, INCIBE, EDPS, ENISA, NIST, CISA).">
+  <meta name="description" content="Buscador unificado de preguntas frecuentes y guías oficiales sobre protección de datos y ciberseguridad (AEPD, CCN-CERT, INCIBE, EDPS, ENISA, NIST, CISA).">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/fontsource/css/sora@latest/latin-600-normal.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/fontsource/css/sora@latest/latin-700-normal.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/fontsource/css/inter@latest/latin-400-normal.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/fontsource/css/inter@latest/latin-500-normal.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/fontsource/css/inter@latest/latin-600-normal.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -18,7 +24,7 @@
         </div>
       </div>
       <div class="searchwrap">
-        <input id="searchInput" type="search" placeholder="Busca entre todas las preguntas… (ej. cookies, videovigilancia)" autocomplete="off" aria-label="Buscar preguntas frecuentes">
+        <input id="searchInput" type="search" placeholder="Busca entre preguntas y guías… (ej. cookies, IA, videovigilancia)" autocomplete="off" aria-label="Buscar">
         <button id="clearSearch" title="Limpiar búsqueda" aria-label="Limpiar búsqueda">✕</button>
       </div>
     </div>
@@ -26,13 +32,13 @@
 
   <section class="hero">
     <div class="hero-in">
-      <h1>Todas las FAQs de <em>protección de datos</em> y <em>ciberseguridad</em> en un solo lugar</h1>
-      <p class="lead">Contenido oficial reunido de AEPD, CCN-CERT, INCIBE, EDPS, EDPB, ENISA, ICO, NIST y CISA.</p>
+      <h1>Todas las <em>FAQs</em> y <em>guías oficiales</em> en un solo lugar</h1>
+      <p class="lead">Preguntas frecuentes y documentos oficiales reunidos de AEPD, CCN-CERT, INCIBE, EDPS, EDPB, ENISA, ICO, NIST y CISA.</p>
       <div class="hero-stats">
-        <div class="stat"><b id="statTotal">…</b><span>Preguntas</span></div>
-        <div class="stat"><b id="statSources">…</b><span>Fuentes oficiales</span></div>
-        <div class="stat"><b id="statCats">…</b><span>Categorías</span></div>
-        <div class="stat"><b id="statUpdated">…</b><span>Última actualización</span></div>
+        <div class="stat"><b id="statFaqs">…</b><span>Preguntas</span></div>
+        <div class="stat"><b id="statGuides">…</b><span>Guías oficiales</span></div>
+        <div class="stat"><b id="statSources">…</b><span>Fuentes</span></div>
+        <div class="stat"><b id="statUpdated">…</b><span>Actualización</span></div>
       </div>
     </div>
   </section>
@@ -50,10 +56,19 @@
     </aside>
 
     <section>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="faqs" id="tabFaqs">
+          <span class="ic">💬</span> Preguntas frecuentes
+        </button>
+        <button class="tab-btn" data-tab="guides" id="tabGuides">
+          <span class="ic">📚</span> Guías oficiales
+        </button>
+      </div>
+
       <div class="toolbar">
         <button class="tool-btn filters-toggle" id="filtersToggle">☰ Filtros</button>
         <div class="result-count" id="resultCount"></div>
-        <div class="tool-actions">
+        <div class="tool-actions" id="faqActions">
           <button class="tool-btn" id="expandAll">⌄ Expandir</button>
           <button class="tool-btn" id="collapseAll">⌃ Contraer</button>
         </div>
@@ -62,7 +77,7 @@
       <div class="empty" id="emptyState">
         <div class="big">🔎</div>
         <h3>Sin resultados</h3>
-        <p>No hemos encontrado ninguna pregunta que coincida con tu búsqueda.<br>Prueba con otros términos como «consentimiento», «sanción» o «incidente».</p>
+        <p>No hemos encontrado contenido que coincida con tu búsqueda.<br>Prueba con otros términos como «consentimiento», «IA» o «videovigilancia».</p>
         <button id="resetFilters">Restablecer filtros</button>
       </div>
       <div id="loading" class="loading">Cargando base de conocimiento…</div>
@@ -73,7 +88,7 @@
     <div class="foot-in">
       <div>
         <h4>Sobre este portal</h4>
-        <p>FAQ Hub reúne los contenidos públicos de los centros de preguntas frecuentes de organismos oficiales con fines informativos. Algunas respuestas son extractos resumidos; consulta siempre la fuente original.</p>
+        <p>FAQ Hub reúne los contenidos públicos de los centros de preguntas frecuentes y las guías oficiales de organismos oficiales con fines informativos. Consulta siempre la fuente original.</p>
       </div>
       <div>
         <h4>Proyecto</h4>
@@ -90,7 +105,6 @@
 
   <button id="toTop" title="Volver arriba" aria-label="Volver arriba">↑</button>
 
-  <!-- Fuse.js para búsqueda fuzzy (CDN gratuito) -->
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
   <script src="assets/app.js"></script>
 </body>

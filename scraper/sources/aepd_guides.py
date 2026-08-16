@@ -43,7 +43,6 @@ class AEPDGuidesScraper(BaseScraper):
         guides = []
         seen = set()
 
-        # Buscar bloques que contengan guías
         for block in soup.select("article, .card, li, .views-row, div"):
             h = block.select_one("h2, h3, h4")
             if not h:
@@ -59,9 +58,14 @@ class AEPDGuidesScraper(BaseScraper):
                     link = urljoin(self.BASE_URL, a["href"])
                     break
 
-            # 2) Si no, seguir "Ver documento" y buscar el PDF dentro
+            # 2) Si no, seguir "Ver documento" (solo enlaces limpios, sin filtros)
             if not link:
-                doc = block.select_one("a[href*='guias'], a[href*='node']")
+                doc = None
+                for a in block.select("a[href]"):
+                    href = a["href"]
+                    if ("guias" in href or "node" in href) and "?" not in href:
+                        doc = a
+                        break
                 if doc:
                     node_url = urljoin(self.BASE_URL, doc["href"])
                     node_html = self.fetch(node_url)

@@ -1,4 +1,4 @@
-"""Scraper de la AEPD — captura respuesta COMPLETA."""
+"""Scraper de la AEPD — captura respuesta COMPLETA (todos los párrafos)."""
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from .base import BaseScraper, clean_text, is_junk
@@ -30,6 +30,7 @@ class AEPDScraper(BaseScraper):
         seen = set()
         cat_urls = []
 
+        # Recopilar URLs de categorías
         for a in soup.select("a[href*='/preguntas-frecuentes/']"):
             href = urljoin(self.BASE_URL, a.get("href", ""))
             if href not in seen and href != self.BASE_URL:

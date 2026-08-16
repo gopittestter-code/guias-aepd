@@ -9,11 +9,12 @@ JUNK_HEADINGS = {
     "pasar al contenido principal", "volver atrás", "volver al inicio",
     "formulario de búsqueda de preguntas frecuentes",
     "configuración de cookies", "denegar todas", "aceptar todas",
-    "documentación de cookies",
+    "documentación de cookies", "buscar",
 }
 
 
 def norm(text):
+    """Minúsculas y sin tildes, para comparar preguntas."""
     return "".join(
         c for c in unicodedata.normalize("NFD", text.lower())
         if not (0x300 <= ord(c) <= 0x36F)
@@ -21,11 +22,13 @@ def norm(text):
 
 
 def clean_text(t):
+    """Elimina restos de 'Leer más…' y compacta espacios."""
     t = re.sub(r"leer más sobre\s*['\"«].*", " ", t, flags=re.I)
     return re.sub(r"\s+", " ", t).strip()
 
 
 def is_junk(question):
+    """Detecta títulos basura (menús, fechas, textos cortos)."""
     q = question.strip()
     return (
         len(q) < 6
@@ -39,13 +42,14 @@ class BaseScraper(ABC):
     BASE_URL = ""
     HEADERS = {
         "User-Agent": (
-            "Mozilla/5.0 (compatible; FAQHubBot/1.0; "
-            "+https://github.com/TU-USUARIO/faq-hub)"
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         )
     }
     TIMEOUT = 30
 
     def fetch(self, url):
+        """Descarga una página y devuelve el HTML."""
         try:
             resp = requests.get(url, headers=self.HEADERS, timeout=self.TIMEOUT)
             resp.raise_for_status()
@@ -55,23 +59,27 @@ class BaseScraper(ABC):
             return ""
 
     def fetch_rendered(self, url):
-        """Descarga la página ejecutando JavaScript (Playwright). Si falla, usa requests."""
+        """Descarga la página ejecutando JavaScript (Playwright)."""
         try:
             from playwright.sync_api import sync_playwright
         except Exception:
             return self.fetch(url)
+        
         try:
             with sync_playwright() as p:
-                browser = p.chromium.launch()
+                browser = p.chromium.launch(headless=True)
                 page = browser.new_page()
                 page.goto(url, timeout=60000, wait_until="networkidle")
+                # Espera un poco más para que cargue todo el contenido dinámico
+                page.wait_for_timeout(2000)
                 html = page.content()
                 browser.close()
                 return html
         except Exception as e:
-            print(f"  ⚠️  Playwright falló ({url}): {e}. Uso requests.")
+            print(f"  ⚠️  Playwright falló ({url}): {e}. Usando requests.")
             return self.fetch(url)
 
     @abstractmethod
     def scrape(self):
+        """Devuelve una lista de FAQs o guías."""
         raise NotImplementedError

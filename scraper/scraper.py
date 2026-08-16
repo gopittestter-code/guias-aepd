@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""
-FAQ Hub — Scraper principal
-Recorre todas las fuentes oficiales y regenera data/faq_data.json.
-"""
+"""FAQ Hub — Scraper principal (FAQs + Guías oficiales)."""
 import json
 import os
 import sys
@@ -11,6 +8,7 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from sources import ALL_SCRAPERS
+from sources.base import is_junk, norm
 
 OUTPUT = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
@@ -18,14 +16,15 @@ OUTPUT = os.path.join(
 )
 
 META = {
-    "version": "1.0.0",
+    "version": "1.2.0",
     "title": "Base de Conocimiento de Protección de Datos y Seguridad de la Información",
-    "description": "FAQs recopiladas automáticamente de fuentes oficiales internacionales",
+    "description": "FAQs y guías oficiales recopiladas de fuentes internacionales",
     "languages": ["es", "en"],
 }
 
 SOURCES = [
-    {"id": "aepd", "name": "AEPD", "country": "España", "url": "https://www.aepd.es/preguntas-frecuentes"},
+    {"id": "aepd", "name": "AEPD (FAQs)", "country": "España", "url": "https://www.aepd.es/preguntas-frecuentes"},
+    {"id": "aepd_guides", "name": "AEPD (Guías)", "country": "España", "url": "https://www.aepd.es/guias-y-herramientas/guias"},
     {"id": "ccn_cert", "name": "CCN-CERT", "country": "España", "url": "https://www.ccn-cert.cni.es/es/sobre-nosotros/faq.html"},
     {"id": "incibe", "name": "INCIBE", "country": "España", "url": "https://www.incibe.es/linea-de-ayuda-en-ciberseguridad/faq"},
     {"id": "edps", "name": "EDPS", "country": "Unión Europea", "url": "https://www.edps.europa.eu/frequently-asked-questions_en"},
@@ -54,45 +53,92 @@ CATEGORIES = [
 ]
 
 
-def load_existing() -> list:
+def load_existing():
     try:
         with open(OUTPUT, "r", encoding="utf-8") as f:
-            return json.load(f).get("faqs", [])
+            data = json.load(f)
+        faqs = [f for f in data.get("faqs", []) if not is_junk(f.get("question", ""))]
+        guides = [g for g in data.get("guides", []) if not is_junk(g.get("title", ""))]
+        return faqs, guides
     except (FileNotFoundError, json.JSONDecodeError):
-        return []
+        return [], []
 
 
 def merge_faqs(existing, new):
     by_id = {f["id"]: f for f in existing}
+    by_q = {norm(f["question"]): f for f in existing}
     for f in new:
-        by_id[f["id"]] = f
+        if is_junk(f.get("question", "")):
+            continue
+        q = norm(f["question"])
+        old = by_q.get(q)
+        if old:
+            if old.get("answer") and not f.get("answer"):
+                continue
+            merged = dict(f); merged["id"] = old["id"]
+            by_id[old["id"]] = merged
+            by_q[q] = merged
+        else:
+            by_id[f["id"]] = f
+            by_q[q] = f
     return list(by_id.values())
+
+
+def merge_guides(existing, new):
+    """Fusiona guías por título normalizado."""
+    by_id = {g["id"]: g for g in existing}
+    by_t = {norm(g["title"]): g for g in existing}
+    for g in new:
+        if is_junk(g.get("title", "")):
+            continue
+        t = norm(g["title"])
+        old = by_t.get(t)
+        if old:
+            merged = dict(g); merged["id"] = old["id"]
+            by_id[old["id"]] = merged
+            by_t[t] = merged
+        else:
+            by_id[g["id"]] = g
+            by_t[t] = g
+    # Ordenar por fecha descendente
+    items = list(by_id.values())
+    items.sort(key=lambda x: x.get("published_date") or "0000-00-00", reverse=True)
+    return items
 
 
 def main():
     print("🤖 FAQ Hub — Actualizando base de conocimiento\n")
 
-    all_new = []
+    all_faqs = []
+    all_guides = []
     for scraper_cls in ALL_SCRAPERS:
         try:
-            all_new.extend(scraper_cls().scrape())
+            items = scraper_cls().scrape()
+            if items and items[0].get("type") == "guide":
+                all_guides.extend(items)
+            else:
+                all_faqs.extend(items)
         except Exception as e:
             print(f"  ❌ Error en {scraper_cls.__name__}: {e}")
 
-    merged = merge_faqs(load_existing(), all_new)
+    existing_faqs, existing_guides = load_existing()
+    merged_faqs = merge_faqs(existing_faqs, all_faqs)
+    merged_guides = merge_guides(existing_guides, all_guides)
 
     META["extracted_date"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    META["total_sources"] = len({f["source"] for f in merged})
-    META["total_faqs"] = len(merged)
+    META["total_sources"] = len({f["source"] for f in merged_faqs + merged_guides})
+    META["total_faqs"] = len(merged_faqs)
+    META["total_guides"] = len(merged_guides)
 
     os.makedirs(os.path.dirname(OUTPUT), exist_ok=True)
     with open(OUTPUT, "w", encoding="utf-8") as f:
         json.dump(
-            {"meta": META, "sources": SOURCES, "categories": CATEGORIES, "faqs": merged},
+            {"meta": META, "sources": SOURCES, "categories": CATEGORIES,
+             "faqs": merged_faqs, "guides": merged_guides},
             f, ensure_ascii=False, indent=2,
         )
 
-    print(f"\n✅ Listo: {len(merged)} FAQs escritas en {OUTPUT}")
+    print(f"\n✅ Listo: {len(merged_faqs)} FAQs + {len(merged_guides)} guías en {OUTPUT}")
 
 
 if __name__ == "__main__":

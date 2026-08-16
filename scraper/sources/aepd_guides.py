@@ -43,6 +43,7 @@ class AEPDGuidesScraper(BaseScraper):
         guides = []
         seen = set()
 
+        # Buscar bloques que contengan guías
         for block in soup.select("article, .card, li, .views-row, div"):
             h = block.select_one("h2, h3, h4")
             if not h:

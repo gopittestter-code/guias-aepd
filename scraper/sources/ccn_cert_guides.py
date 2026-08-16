@@ -1,24 +1,27 @@
-"""Scraper de las guías oficiales publicadas por el CCN-CERT."""
+"""Scraper de las guías oficiales del CCN-CERT (lee la tabla de documentos)."""
 import re
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from .base import BaseScraper, clean_text, is_junk
 
+MONTHS = {
+    "ene":1,"feb":2,"mar":3,"abr":4,"may":5,"jun":6,
+    "jul":7,"ago":8,"sep":9,"oct":10,"nov":11,"dic":12,
+    "enero":1,"febrero":2,"marzo":3,"abril":4,"mayo":5,"junio":6,
+    "julio":7,"agosto":8,"septiembre":9,"octubre":10,"noviembre":11,"diciembre":12,
+}
 
-# Mapeo de temas/series del CCN a categorías del sistema
 TOPIC_TO_CAT = {
-    "stic": "ciberseguridad_conceptos",
-    "stic-": "ciberseguridad_conceptos",
-    "guía": "ciberseguridad_conceptos",
-    "crip": "ciberseguridad_conceptos",
-    "ccn-cert": "ciberseguridad_conceptos",
+    "procedimiento": "ciberseguridad_conceptos",
+    "empleo seguro": "ciberseguridad_conceptos",
+    "catálogo": "ciberseguridad_conceptos",
+    "perfilado": "ciberseguridad_conceptos",
+    "linux": "ciberseguridad_conceptos",
+    "windows": "ciberseguridad_conceptos",
     "incidente": "incidentes",
     "ransomware": "ransomware",
-    "nis": "nis2",
-    "ens": "nis2",
-    "certificación": "ciberseguridad_conceptos",
-    "seguridad nacional": "ciberseguridad_conceptos",
-    "ciberseguridad": "ciberseguridad_conceptos",
+    "cript": "ciberseguridad_conceptos",
+    "seguridad": "ciberseguridad_conceptos",
 }
 
 
@@ -33,97 +36,71 @@ class CCNCertGuidesScraper(BaseScraper):
 
         soup = BeautifulSoup(html, "lxml")
         guides = []
-        seen_ids = set()
+        seen = set()
 
-        # El CCN-CERT lista las guías como artículos/tarjetas con enlaces a PDF
-        # Buscamos todos los bloques que contengan un enlace a un PDF de guía
-        for block in soup.select("article, li, .item, .guide-item, .card, div"):
-            # Busca enlaces a PDFs del CCN
-            pdf_link = None
-            for a in block.select("a[href]"):
-                href = a.get("href", "")
-                if href.lower().endswith(".pdf") and ("guias" in href.lower() or "ccn-cert" in href.lower() or "/es/" in href):
-                    pdf_link = urljoin(self.BASE_URL, href)
+        # La página es una tabla: cada fila (<tr>) contiene el enlace del documento.
+        # Si no hubiera <tr>, probamos bloques genéricos.
+        rows = soup.select("tr") or soup.select("article, li, .row, .item, .views-row")
+
+        for row in rows:
+            # Busca el enlace cuyo texto sea un código CCN-STIC / CCN
+            link = None
+            for a in row.select("a[href]"):
+                t = clean_text(a.get_text(" ", strip=True))
+                if re.search(r"\bCCN[-\s]?STIC\b", t, re.I) or t.upper().startswith("CCN"):
+                    link = a
                     break
-
-            if not pdf_link:
+            if not link:
                 continue
 
-            # Evitar duplicados por PDF
-            if pdf_link in seen_ids:
+            url = urljoin(self.BASE_URL, link.get("href", ""))
+            if url in seen:
                 continue
-            seen_ids.add(pdf_link)
+            seen.add(url)
 
-            # Título: el h2/h3/h4 más cercano, o el texto del enlace
-            title_el = block.select_one("h2, h3, h4, .title")
-            if title_el:
-                title = clean_text(title_el.get_text(" ", strip=True))
-            else:
-                # Usa el primer enlace con texto significativo
-                a = block.select_one("a")
-                title = clean_text(a.get_text(" ", strip=True)) if a else ""
-
+            title = clean_text(link.get_text(" ", strip=True))
             if not title or is_junk(title):
                 continue
 
-            # Código de la guía (STIC-XXX, CCN-CERT-XXX, etc.)
-            code_match = re.search(r"\b([A-Z]+-\d+[A-Z0-9-]*)\b", title)
-            code = code_match.group(1) if code_match else ""
+            row_text = row.get_text(" ")
 
-            # Resumen: primer párrafo que no sea el título ni un código
-            summary = ""
-            for p in block.select("p"):
-                t = clean_text(p.get_text(" ", strip=True))
-                if not t or t == title or len(t) < 20:
-                    continue
-                if re.match(r"^[A-Z]+-\d+", t):
-                    continue
-                summary = t[:400]
-                break
+            # Categoría (columna "Categoría:")
+            cat_m = re.search(r"Categoría:\s*([^|]{0,80})", row_text, re.I)
+            topic = clean_text(cat_m.group(1)) if cat_m else ""
 
-            # Fecha si existe
+            # Fecha de publicación ("Publicado desde: Jul 2025")
             date = None
-            txt = block.get_text(" ")
-            m = re.search(r"(\d{1,2})[/-](\d{1,2})[/-](\d{4})", txt)
-            if m:
-                d, mo, y = m.groups()
-                date = f"{y}-{int(mo):02d}-{int(d):02d}"
-            else:
-                m = re.search(r"(\d{4})", txt)
-                if m and 2010 <= int(m.group(1)) <= 2030:
-                    date = f"{m.group(1)}-01-01"
-
-            # Tema y categoría
-            topic = code or self._extract_topic(title)
-            category = self._topic_to_cat(topic + " " + title)
+            d_m = re.search(r"Publicado desde:\s*([A-Za-zÁ-ú]{3,})\s+(\d{4})", row_text, re.I)
+            if d_m:
+                key = d_m.group(1).lower()
+                mon = MONTHS.get(key) or MONTHS.get(key[:3])
+                if mon:
+                    date = f"{d_m.group(2)}-{mon:02d}-01"
 
             guides.append({
                 "id": f"guide_ccn_{len(guides)+1:03d}",
                 "source": self.SOURCE_ID,
                 "type": "guide",
-                "category": category,
-                "topic": topic,
+                "category": self._topic_to_cat(title + " " + topic),
+                "topic": topic or self._code(title),
                 "title": title,
-                "summary": summary,
+                "summary": "",
                 "published_date": date,
-                "tags": ["CCN-CERT", "guía", "ciberseguridad", "oficial"],
-                "url": pdf_link,
-                "url_original": pdf_link,
+                "tags": ["CCN-CERT", "guía", "CCN-STIC", "ciberseguridad"],
+                "url": url,                 # 🔧 URL real de cada guía, no la general
+                "url_original": url,
             })
 
         print(f"  ✅ CCN-CERT Guías: {len(guides)} documentos")
         return guides
 
-    def _extract_topic(self, title):
-        # Extrae un "tema" legible del título
-        t = title
-        # Si empieza por código STIC-123, quítalo
-        t = re.sub(r"^[A-Z]+-\d+[A-Z0-9-]*[:\s]*", "", t).strip()
-        return t[:80] if t else title[:80]
+    def _code(self, title):
+        m = re.match(r"^(CCN[-\s]?STIC[-\s]?[\w./-]+)", title, re.I)
+        return m.group(1).strip() if m else title[:60]
 
     def _topic_to_cat(self, text):
-        text_l = text.lower()
-        for key, cat in TOPIC_TO_CAT.items():
-            if key in text_l:
-                return cat
+        tl = text.lower()
+        for k, v in TOPIC_TO_CAT.items():
+            if k in tl:
+                return v
         return "ciberseguridad_conceptos"

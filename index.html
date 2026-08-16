@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ Hub · Protección de Datos y Ciberseguridad</title>
-  <meta name="description" content="Buscador unificado de preguntas frecuentes y guías oficiales sobre protección de datos y ciberseguridad (AEPD, CCN-CERT, INCIBE, EDPS, ENISA, NIST, CISA).">
+  <title>FAQ Hub · Base de Conocimiento de Protección de Datos y Ciberseguridad</title>
+  <meta name="description" content="Buscador unificado de preguntas frecuentes y guías oficiales sobre protección de datos y ciberseguridad. Contenido de AEPD, CCN-CERT, INCIBE, EDPS, EDPB, ENISA, ICO, NIST y CISA.">
+  
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://cdn.jsdelivr.net/fontsource/css/sora@latest/latin-600-normal.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/fontsource/css/sora@latest/latin-700-normal.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/fontsource/css/inter@latest/latin-400-normal.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/fontsource/css/inter@latest/latin-500-normal.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/fontsource/css/inter@latest/latin-600-normal.min.css" rel="stylesheet">
+  
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -33,7 +35,7 @@
   <section class="hero">
     <div class="hero-in">
       <h1>Todas las <em>FAQs</em> y <em>guías oficiales</em> en un solo lugar</h1>
-      <p class="lead">Preguntas frecuentes y documentos oficiales reunidos de AEPD, CCN-CERT, INCIBE, EDPS, EDPB, ENISA, ICO, NIST y CISA.</p>
+      <p class="lead">Preguntas frecuentes y documentos oficiales reunidos de AEPD, CCN-CERT, INCIBE, EDPS, EDPB, ENISA, ICO, NIST y CISA. Busca, filtra y descarga guías oficiales.</p>
       <div class="hero-stats">
         <div class="stat"><b id="statFaqs">…</b><span>Preguntas</span></div>
         <div class="stat"><b id="statGuides">…</b><span>Guías oficiales</span></div>
@@ -73,13 +75,16 @@
           <button class="tool-btn" id="collapseAll">⌃ Contraer</button>
         </div>
       </div>
+      
       <div id="content" aria-live="polite"></div>
+      
       <div class="empty" id="emptyState">
         <div class="big">🔎</div>
         <h3>Sin resultados</h3>
         <p>No hemos encontrado contenido que coincida con tu búsqueda.<br>Prueba con otros términos como «consentimiento», «IA» o «videovigilancia».</p>
         <button id="resetFilters">Restablecer filtros</button>
       </div>
+      
       <div id="loading" class="loading">Cargando base de conocimiento…</div>
     </section>
   </main>
@@ -88,7 +93,7 @@
     <div class="foot-in">
       <div>
         <h4>Sobre este portal</h4>
-        <p>FAQ Hub reúne los contenidos públicos de los centros de preguntas frecuentes y las guías oficiales de organismos oficiales con fines informativos. Consulta siempre la fuente original.</p>
+        <p>FAQ Hub reúne los contenidos públicos de los centros de preguntas frecuentes y las guías oficiales de organismos oficiales con fines informativos. Consulta siempre la fuente original para el texto íntegro y actualizado.</p>
       </div>
       <div>
         <h4>Proyecto</h4>
@@ -97,7 +102,7 @@
       </div>
       <div>
         <h4>Atajos</h4>
-        <p>Pulsa <kbd>/</kbd> para buscar desde cualquier punto de la página.</p>
+        <p>Pulsa <kbd>/</kbd> para buscar desde cualquier punto de la página. <kbd>Esc</kbd> para limpiar la búsqueda.</p>
       </div>
     </div>
     <div class="foot-base">FAQ Hub · Contenido recopilado de fuentes públicas · <span id="footDate"></span></div>

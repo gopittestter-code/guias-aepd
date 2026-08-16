@@ -26,6 +26,7 @@ class CCNCertGuidesScraper(BaseScraper):
     BASE_URL = "https://www.ccn-cert.cni.es/es/guias.html"
 
     def scrape(self):
+        # 🔧 Usar Playwright para renderizar JavaScript
         html = self.fetch_rendered(self.BASE_URL)
         if not html:
             return []
@@ -34,6 +35,7 @@ class CCNCertGuidesScraper(BaseScraper):
         guides = []
         seen = set()
 
+        # Buscar filas de tabla o bloques
         rows = soup.select("tr") or soup.select("article, li, .row, .item, .views-row")
 
         for row in rows:
